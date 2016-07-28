@@ -4,9 +4,9 @@ Simple very simple app to display a toast if Motorola Turbo Charger is connected
 ![Screenshot](https://raw.githubusercontent.com/bhb27/turbotoast/master/screenshots/screenshot.png)
 
 
-## Report a bug device support
+## Report a bug request device support
 
-You can report a bug or request a feature by [opening an issue](https://github.com/bhb27/turbotoast/issues/new) or
+You can report a bug or a request by [opening an issue](https://github.com/bhb27/turbotoast/issues/new) or
 mention @baybutcher27 with the request/bug in xda
 
 ## Download & Build
