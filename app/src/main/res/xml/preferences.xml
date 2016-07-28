@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <Preference
+        android:title=""
+        android:summary=""
+        android:defaultValue="" />
+
+    <CheckBoxPreference
+        android:key="TurboToast"
+        android:title="@string/battery_turbo_toast"
+        android:summary="@string/battery_turbo_toast_summary"
+        android:defaultValue="true" />
+
+    <Preference
+        android:title=""
+    />
+
+    <Preference
+        android:title="@string/dev_info"
+    />
+
+    <Preference android:title="Email" android:summary="fglfgl27@gmail.com">
+        <intent android:action="android.intent.action.VIEW"
+                android:data="mailto:fglfgl27@gmail.com" />
+    </Preference>
+
+    <Preference android:title="XDA thread (temp)"  >
+        <intent android:action="android.intent.action.VIEW"
+                android:data="http://forum.xda-developers.com/moto-maxx/development/rom-resurrection-remix-t3316232" />
+    </Preference>
+
+    <Preference android:title="Git Hub"  android:summary="@string/open_source">
+        <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/bhb27/turbotoast" />
+    </Preference>
+
+    <Preference
+        android:title=""
+    />
+
+    <Preference
+        android:title="@string/version"
+        android:summary="@string/version_summary"
+        android:defaultValue="" />
+
+</PreferenceScreen>
