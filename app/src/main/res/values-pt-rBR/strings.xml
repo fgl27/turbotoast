@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="battery_turbo_toast">Mensagem Toast Carregador Turbo</string>
-    <string name="battery_turbo_toast_summary">Mostra uma mesagem Toast se o Carregador Turbo da Motorola for conectado e reconhecido como Carregador Turbo</string>
+    <string name="battery_turbo_toast_summary">Mostra uma mesagem Toast \u0022Carregador Turbo conectado %\u0022se o Carregador Turbo da Motorola for conectado e reconhecido como Carregador Turbo</string>
     <string name="chargerconnected_turbo_toast">   Carregador Turbo conectado   </string>
     <string name="dev_info">Informações do desemvolvedor</string>
     <string name="open_source">Este app é aberto confira no meu github</string>
-    <string name="version">Versão 1.0.0 (Jul-27-2016)</string>
+    <string name="version">Versão 1.0.1</string>
     <string name="version_summary">por bhb27(@github) AKA baybutcher27(@xda)</string>
+    <string name="charge">Carregou</string>
+    <string name="charge_title">Carga Final</string>
+    <string name="charge_title_summary">Mostra uma mesagem Toast \u0022Carregou %\u0022 com o atual valor da carga da bateria quando o carregador é desconectado</string>
 </resources>

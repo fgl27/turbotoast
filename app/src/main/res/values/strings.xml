@@ -2,10 +2,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">TurboToast</string>
     <string name="battery_turbo_toast">Turbo Charger Toast</string>
-    <string name="battery_turbo_toast_summary">Display a toast message if Motorola Turbo Charger is connected and recognized by the system as the Turbo charger</string>
+    <string name="battery_turbo_toast_summary">Display a toast message \u0022Turbo Charger Connected\u0022 if Motorola Turbo Charger is connected and recognized by the system as the Turbo charger</string>
     <string name="chargerconnected_turbo_toast">   Turbo Charger Connected   </string>
+    <string name="charge">Charge</string>
+    <string name="charge_title">Final Charge</string>
+    <string name="charge_title_summary">Display a toast message \u0022Charge %\u0022 with the current battery percentage value when the charger is unplugged</string>
     <string name="dev_info">Developer information</string>
     <string name="open_source">This is a open source app check it on my github\ngithub.com/bhb27/turbotoast</string>
-    <string name="version">Version 1.0.0 (Jul-27-2016)</string>
+    <string name="version">Version 1.0.1</string>
     <string name="version_summary">by bhb27(@github) AKA baybutcher27(@xda)</string>
 </resources>

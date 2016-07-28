@@ -3,15 +3,16 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
-    <Preference
-        android:title=""
-        android:summary=""
-        android:defaultValue="" />
-
     <CheckBoxPreference
         android:key="TurboToast"
         android:title="@string/battery_turbo_toast"
         android:summary="@string/battery_turbo_toast_summary"
+        android:defaultValue="true" />
+
+    <CheckBoxPreference
+        android:key="Charge"
+        android:title="@string/charge_title"
+        android:summary="@string/charge_title_summary"
         android:defaultValue="true" />
 
     <Preference

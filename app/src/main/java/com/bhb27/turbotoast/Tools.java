@@ -41,6 +41,10 @@ public class Tools implements Constants {
         return StringreadFile(BATTERY_CHARGING_TYPE);
     }
 
+    public static String getChargeCapaity() {
+        return StringreadFile(BATTERY_CAPACITY);
+    }
+
     public static boolean getBoolean(String name, boolean defaults, Context context) {
         try {
             return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE).getBoolean(name, defaults);

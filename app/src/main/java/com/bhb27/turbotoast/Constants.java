@@ -28,4 +28,6 @@ public interface Constants {
     String BATTERY_CHARGING_TYPE = BATTERY_PARAMETERS + "/charge_rate";
     // Battery health
     String BATTERY_HEALTH = BATTERY_PARAMETERS + "/health";
+    // Battery %
+    String BATTERY_CAPACITY = BATTERY_PARAMETERS + "/capacity";
 }
