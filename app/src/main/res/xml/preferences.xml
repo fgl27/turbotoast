@@ -16,7 +16,9 @@
         android:defaultValue="true" />
 
     <Preference
-        android:title=""
+        android:key="teste"
+        android:title="@string/toast_test"
+        android:summary="@string/toast_test_summary"
     />
 
     <Preference
@@ -37,10 +39,6 @@
         <intent android:action="android.intent.action.VIEW"
                 android:data="https://github.com/bhb27/turbotoast" />
     </Preference>
-
-    <Preference
-        android:title=""
-    />
 
     <Preference
         android:title="@string/version"

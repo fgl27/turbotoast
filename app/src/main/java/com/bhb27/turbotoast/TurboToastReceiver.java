@@ -32,10 +32,10 @@ public class TurboToastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         String action = intent.getAction();
-	String turbo = "";
+
         if (Tools.getBoolean("Charge", true, context)) {
             if (Intent.ACTION_POWER_DISCONNECTED.equals(action))
-	        Toast.makeText(context, turbo + (context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapaity() + "%"), Toast.LENGTH_LONG).show();
+	        Toast.makeText(context, (context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapaity() + "%"), Toast.LENGTH_LONG).show();
 	}
         if (Tools.getBoolean("TurboToast", true, context)) {
             if (Intent.ACTION_POWER_CONNECTED.equals(action)) {
@@ -43,7 +43,6 @@ public class TurboToastReceiver extends BroadcastReceiver {
                 for (int i = 0; i < 50; i++) {
                     if ((Tools.getChargingType().equals("Turbo"))) {
                         Toast.makeText(context, (context.getResources().getString(R.string.chargerconnected_turbo_toast)), Toast.LENGTH_LONG).show();
-			turbo = "Trubo ";
                         i = 51;
                     } else {
                         try {

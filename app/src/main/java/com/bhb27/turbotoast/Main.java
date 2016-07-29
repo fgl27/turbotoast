@@ -17,8 +17,14 @@
 package com.bhb27.turbotoast;
 
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
+import android.preference.Preference.OnPreferenceClickListener;
 
+import android.widget.Toast;
+
+import com.bhb27.turbotoast.Tools;
 import com.bhb27.turbotoast.Constants;
 
 public class Main extends PreferenceActivity{
@@ -28,6 +34,15 @@ public class Main extends PreferenceActivity{
         super.onCreate(savedInstanceState);
 	getPreferenceManager().setSharedPreferencesName(Constants.PREF_NAME);
         addPreferencesFromResource(R.xml.preferences);
-        getActionBar().setTitle("  " + getTitle());
+        getPreferenceManager().findPreference("teste").setOnPreferenceClickListener(new OnPreferenceClickListener()
+        {
+            @Override
+            public boolean onPreferenceClick(Preference preference)
+            {
+                Toast.makeText(Main.this, getString(R.string.test_a_toast) + "                " + Tools.getChargingType(), Toast.LENGTH_LONG).show();
+		return true;
+            }
+        });
     }
+	
 }
