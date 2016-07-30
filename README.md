@@ -1,6 +1,7 @@
 # TurboToast
 
-Simple very simple app to display a toast if Motorola Turbo Charger is connected and recognized by the system as the Turbo charger.
+Simple app to display a toast when a Turbo Charger (Qualcomm QuickCharge 2.0 (QC 2.0) or rebranded QC 2.0 Turbo charger by Motorola) is connected and recognized as the Turbo charger + it can display on a toast the final charge after remove the charger.
+
 ![Screenshot](https://raw.githubusercontent.com/bhb27/turbotoast/master/screenshots/screenshot.png)
 
 
