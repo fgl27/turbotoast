@@ -23,6 +23,7 @@ import java.io.IOException;
 
 import com.bhb27.turbotoast.R;
 import com.bhb27.turbotoast.Tools;
+import com.bhb27.turbotoast.root.RootUtils;
 
 public class TurboToastReceiver extends BroadcastReceiver {
 
@@ -32,34 +33,31 @@ public class TurboToastReceiver extends BroadcastReceiver {
         String action = intent.getAction();
 
         if (Tools.getBoolean("Root", true, context)) {
-            try {
-                Runtime runtime = Runtime.getRuntime();
-                Process process = runtime.exec("su");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            if (Tools.getBoolean("Charge", true, context)) {
-                if (Intent.ACTION_POWER_DISCONNECTED.equals(action))
-                    Toast.makeText(context, (context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity() + "%"), Toast.LENGTH_LONG).show();
-            }
-            if (Tools.getBoolean("TurboToast", true, context)) {
-                if (Intent.ACTION_POWER_CONNECTED.equals(action)) {
-                    // in average the toast display in 2s add a litle more time just to make shore
-                    for (int i = 0; i < 50; i++) {
-                        if (Tools.getChargingType().equals("Turbo")) {
-                            Toast.makeText(context, (context.getResources().getString(R.string.chargerconnected_turbo_toast)), Toast.LENGTH_LONG).show();
-                            i = 51;
-                        } else {
-                            try {
-                                Thread.sleep(100);
-                            } catch (InterruptedException ex) {
-                                Thread.currentThread().interrupt();
+            if (RootUtils.rooted() && RootUtils.rootAccess()) {
+                if (Tools.getBoolean("Charge", true, context)) {
+                    if (Intent.ACTION_POWER_DISCONNECTED.equals(action))
+                        Toast.makeText(context, (context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity() + "%"), Toast.LENGTH_LONG).show();
+                }
+                if (Tools.getBoolean("TurboToast", true, context)) {
+                    if (Intent.ACTION_POWER_CONNECTED.equals(action)) {
+                        // in average the toast display in 2s add a litle more time just to make shore
+                        for (int i = 0; i < 50; i++) {
+                            if (Tools.getChargingType().equals("Turbo")) {
+                                Toast.makeText(context, (context.getResources().getString(R.string.chargerconnected_turbo_toast)), Toast.LENGTH_LONG).show();
+                                i = 51;
+                            } else {
+                                try {
+                                    Thread.sleep(100);
+                                } catch (InterruptedException ex) {
+                                    Thread.currentThread().interrupt();
+                                }
                             }
                         }
                     }
                 }
+            } else {
+                Toast.makeText(context, (context.getResources().getString(R.string.no_root_access)), Toast.LENGTH_LONG).show();
             }
-
         } else {
             if (Tools.getBoolean("Charge", true, context)) {
                 if (Intent.ACTION_POWER_DISCONNECTED.equals(action))

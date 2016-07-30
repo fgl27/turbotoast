@@ -7,45 +7,49 @@
     android:orientation="horizontal" >
 
 	<ScrollView
-	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/faqScroll"
 	    android:layout_height="wrap_content"
 	    android:layout_width="fill_parent" >
 
 		<FrameLayout
 		    android:id="@+id/aboutLayout"
 		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
+		    android:layout_height="wrap_content"
 		    android:background="#D1000000">
 
 		    <ImageView
+			android:contentDescription="turbotoast_icon"
 			android:layout_width="70dp"
 			android:layout_height="70dp"
 			android:id="@+id/ic_launcher"
-			android:layout_gravity="top|left"
+			android:layout_gravity="top|start"
 			android:src="@drawable/ic_launcher"/>
 
 		    <ImageView
+			android:contentDescription="Gmail_icon"
 			android:layout_marginTop="190dp"
 			android:layout_width="50dp"
 			android:layout_height="50dp"
 			android:id="@+id/gmail"
-			android:layout_gravity="top|left"
+			android:layout_gravity="top|start"
 			android:src="@drawable/googlemail"/>
 
 		    <ImageView
+			android:contentDescription="Xda_icon"
 			android:layout_marginTop="265dp"
 			android:layout_width="50dp"
 			android:layout_height="50dp"
 			android:id="@+id/ic_xda"
-			android:layout_gravity="top|left"
+			android:layout_gravity="top|start"
 			android:src="@drawable/ic_xda"/>
 
 		    <ImageView
+			android:contentDescription="GitHub_icon"
 			android:layout_marginTop="340dp"
 			android:layout_width="50dp"
 			android:layout_height="50dp"
 			android:id="@+id/ic_git"
-			android:layout_gravity="top|left"
+			android:layout_gravity="top|start"
 			android:src="@drawable/ic_github"/>
 
 		    <TextView

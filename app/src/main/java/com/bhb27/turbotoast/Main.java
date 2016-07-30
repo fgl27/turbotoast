@@ -32,6 +32,7 @@ import com.bhb27.turbotoast.Tools;
 import com.bhb27.turbotoast.Constants;
 import com.bhb27.turbotoast.AboutActivity;
 import com.bhb27.turbotoast.FaqActivity;
+import com.bhb27.turbotoast.root.RootUtils;
 
 public class Main extends PreferenceActivity {
 
@@ -46,14 +47,13 @@ public class Main extends PreferenceActivity {
         SharedPreferences prefs = getSharedPreferences(settingsTAG, 0);
         boolean RootTag = prefs.getBoolean("Root", false);
         if (RootTag == true) {
-            try {
-                Runtime runtime = Runtime.getRuntime();
-                Process process = runtime.exec("su");
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (RootUtils.rooted() && RootUtils.rootAccess()) {
+                Toast.makeText(Main.this, getString(R.string.root_guaranteed), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(Main.this, getString(R.string.no_root_access), Toast.LENGTH_LONG).show();
             }
         } else {
-            Toast.makeText(Main.this, getString(R.string.not_root), Toast.LENGTH_LONG).show();
+            Toast.makeText(Main.this, getString(R.string.root_disable), Toast.LENGTH_LONG).show();
         }
 
         getPreferenceManager().findPreference("teste").setOnPreferenceClickListener(new OnPreferenceClickListener() {
@@ -63,8 +63,13 @@ public class Main extends PreferenceActivity {
                 SharedPreferences prefs = getSharedPreferences(settingsTAG, 0);
                 boolean RootTag = prefs.getBoolean("Root", false);
                 if (RootTag == true) {
-                    Toast.makeText(Main.this, getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + "                " + Tools.getChargingType(), Toast.LENGTH_LONG).show();
-                    return true;
+                    if (RootUtils.rooted() && RootUtils.rootAccess()) {
+                        Toast.makeText(Main.this, getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + "                " + Tools.getChargingType(), Toast.LENGTH_LONG).show();
+                        return true;
+                    } else {
+                        Toast.makeText(Main.this, getString(R.string.no_root_access), Toast.LENGTH_LONG).show();
+                        return true;
+                    }
                 } else {
                     Toast.makeText(Main.this, getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + "                " + Tools.getChargingTypeN(), Toast.LENGTH_LONG).show();
                     return true;

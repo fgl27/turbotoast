@@ -49,7 +49,7 @@ public class AboutActivity extends Activity {
         email_summary.setText("fglfgl27@gmail.com");
 
         xda = (TextView) findViewById(R.id.xda);
-        xda.setText("XDA Turbo Toast Thread");
+        xda.setText(R.string.xda_summary);
 
         xda_summary = (TextView) findViewById(R.id.xda_summary);
         xda_summary.setText(R.string.xda_summary);

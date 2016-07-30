@@ -7,22 +7,23 @@
     android:orientation="horizontal" >
 
 	<ScrollView
-	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/faqScroll"
 	    android:layout_height="wrap_content"
 	    android:layout_width="fill_parent" >
 
 		<FrameLayout
 		    android:id="@+id/faqLayout"
 		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
+		    android:layout_height="wrap_content"
 		    android:background="#D1000000">
 
 		    <ImageView
+			android:contentDescription="Question_mark_icon"
 			android:layout_marginTop="40dp"
 			android:layout_width="50dp"
 			android:layout_height="50dp"
 			android:id="@+id/ic_quest"
-			android:layout_gravity="top|right"
+			android:layout_gravity="top|end"
 			android:src="@drawable/in_quest"/>
 
 		    <TextView
@@ -36,6 +37,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
+			android:textIsSelectable="true"
 			android:layout_marginTop="70dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -46,6 +48,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
+			android:textIsSelectable="true"
 			android:layout_marginTop="95dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -55,6 +58,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
+			android:textIsSelectable="true"
 			android:layout_marginTop="190dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -65,6 +69,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
+			android:textIsSelectable="true"
 			android:layout_marginTop="215dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -74,6 +79,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
+			android:textIsSelectable="true"
 			android:layout_marginTop="310dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -84,6 +90,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
+			android:textIsSelectable="true"
 			android:layout_marginTop="335dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -93,6 +100,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
+			android:textIsSelectable="true"
 			android:layout_marginTop="515dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -103,6 +111,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
+			android:textIsSelectable="true"
 			android:layout_marginTop="560dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

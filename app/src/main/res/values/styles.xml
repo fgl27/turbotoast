@@ -1,8 +1,6 @@
 <resources>
     <color name="windowBackground">#FAFAFA</color>
     <color name="text">#000000</color>
-    <color name="actionbar_background">#7F0000</color>
-    <color name="actionbar_text">#FAFAFA</color>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:style/Theme.Material.Light.DarkActionBar">
