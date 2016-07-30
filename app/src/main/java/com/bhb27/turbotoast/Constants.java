@@ -13,13 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.bhb27.turbotoast;
 
 public interface Constants {
 
-   String PREF_NAME = "pref";
-   
+    String PREF_NAME = "pref";
+
     // Battery values works for quark and maybe other Moto devices
     String BATTERY_PARAMETERS = "/sys/class/power_supply/battery";
     // Battery charging current

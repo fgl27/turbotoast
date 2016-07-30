@@ -9,6 +9,12 @@
         android:summary="@string/battery_turbo_toast_summary"
         android:defaultValue="true" />
 
+    <Preference
+        android:key="faq"
+        android:title="@string/faq"
+        android:summary="@string/faq_summary"
+    />
+
     <CheckBoxPreference
         android:key="Charge"
         android:title="@string/charge_title"
@@ -21,28 +27,18 @@
         android:summary="@string/toast_test_summary"
     />
 
+    <CheckBoxPreference
+        android:key="Root"
+        android:title="@string/root"
+        android:summary="@string/root_summary"
+	android:defaultValue="true" />
+
     <Preference
-        android:title="@string/dev_info"
+        android:title=""
     />
 
-    <Preference android:title="Email" android:summary="fglfgl27@gmail.com">
-        <intent android:action="android.intent.action.VIEW"
-                android:data="mailto:fglfgl27@gmail.com" />
-    </Preference>
-
-    <Preference android:title="XDA Turbo Toast thread"  >
-        <intent android:action="android.intent.action.VIEW"
-                android:data="http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981" />
-    </Preference>
-
-    <Preference android:title="Git Hub"  android:summary="@string/open_source">
-        <intent android:action="android.intent.action.VIEW"
-                android:data="https://github.com/bhb27/turbotoast" />
-    </Preference>
-
     <Preference
-        android:title="@string/version"
-        android:summary="@string/version_summary"
-        android:defaultValue="" />
-
+        android:key="about"
+        android:title="@string/about"
+    />
 </PreferenceScreen>

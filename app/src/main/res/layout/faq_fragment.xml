@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="horizontal" >
+
+	<ScrollView
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_height="wrap_content"
+	    android:layout_width="fill_parent" >
+
+		<FrameLayout
+		    android:id="@+id/faqLayout"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:background="#D1000000">
+
+		    <ImageView
+			android:layout_marginTop="40dp"
+			android:layout_width="50dp"
+			android:layout_height="50dp"
+			android:id="@+id/ic_quest"
+			android:layout_gravity="top|right"
+			android:src="@drawable/in_quest"/>
+
+		    <TextView
+			android:layout_marginTop="10dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:textSize="22sp"
+			android:textColor="#FFFFFF"
+			android:id="@+id/faq"
+			android:layout_gravity="center|top" />
+
+		    <TextView
+			android:layout_marginTop="70dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:textSize="20sp"
+			android:textColor="#FFFFFF"
+			android:id="@+id/faq_charger"
+			android:layout_gravity="center|top" />
+
+		    <TextView
+			android:layout_marginTop="95dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="16sp"
+			android:textColor="#FFFFFF"
+			android:id="@+id/faq_charger_summary"
+			android:layout_gravity="center|top" />
+
+		    <TextView
+			android:layout_marginTop="190dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:textSize="20sp"
+			android:textColor="#FFFFFF"
+			android:id="@+id/faq_devices"
+			android:layout_gravity="center|top" />
+
+		    <TextView
+			android:layout_marginTop="215dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="16sp"
+			android:textColor="#FFFFFF"
+			android:id="@+id/faq_devices_summary"
+			android:layout_gravity="center|top" />
+
+		    <TextView
+			android:layout_marginTop="310dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:textSize="20sp"
+			android:textColor="#FFFFFF"
+			android:id="@+id/faq_no_toast"
+			android:layout_gravity="center|top" />
+
+		    <TextView
+			android:layout_marginTop="335dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="16sp"
+			android:textColor="#FFFFFF"
+			android:id="@+id/faq_no_toast_summary"
+			android:layout_gravity="center|top" />
+
+		    <TextView
+			android:layout_marginTop="515dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:textSize="20sp"
+			android:textColor="#FFFFFF"
+			android:id="@+id/faq_do_a_toast"
+			android:layout_gravity="center|top" />
+
+		    <TextView
+			android:layout_marginTop="560dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="16sp"
+			android:textColor="#FFFFFF"
+			android:id="@+id/faq_do_a_toast_summary"
+			android:layout_gravity="center|top" />
+
+		    <TextView
+			android:layout_marginTop="900dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:textSize="20sp"
+			android:textColor="#FFFFFF"
+			android:id="@+id/xda"
+			android:layout_gravity="center|top" />
+
+		    <TextView
+			android:layout_marginTop="970dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="16sp"
+			android:textColor="#FFFFFF"
+			android:id="@+id/empty"
+			android:layout_gravity="center|top" />
+
+		</FrameLayout>
+	</ScrollView>
+</RelativeLayout>
