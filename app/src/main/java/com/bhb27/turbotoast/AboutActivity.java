@@ -57,7 +57,6 @@ public class AboutActivity extends Activity {
         git_summary = (TextView) findViewById(R.id.git_summary);
         git_summary.setText(R.string.git_summary);
 
-
         email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -60,7 +60,6 @@ public class FaqActivity extends Activity {
         faq_do_a_toast_summary = (TextView) findViewById(R.id.faq_do_a_toast_summary);
         faq_do_a_toast_summary.setText(R.string.faq_do_a_toast_summary);
 
-
         xda = (TextView) findViewById(R.id.xda);
         xda.setText("XDA Turbo Toast Thread");
 

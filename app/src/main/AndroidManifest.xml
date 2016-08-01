@@ -18,7 +18,6 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -32,7 +31,6 @@
             android:name=".FaqActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-
         <receiver
             android:name=".TurboToastReceiver">
             <intent-filter>
@@ -42,6 +40,4 @@
         </receiver>
 
     </application>
-
-
 </manifest>
