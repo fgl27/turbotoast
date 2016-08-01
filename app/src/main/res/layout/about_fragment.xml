@@ -36,7 +36,7 @@
 
 		    <ImageView
 			android:contentDescription="Xda_icon"
-			android:layout_marginTop="265dp"
+			android:layout_marginTop="280dp"
 			android:layout_width="50dp"
 			android:layout_height="50dp"
 			android:id="@+id/ic_xda"
@@ -102,22 +102,13 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
-			android:layout_marginTop="280dp"
+			android:layout_marginTop="290dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textStyle="bold"
 			android:textSize="20sp"
 			android:textColor="#FFFFFF"
 			android:id="@+id/xda"
-			android:layout_gravity="center|top" />
-
-		    <TextView
-			android:layout_marginTop="305dp"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="18sp"
-			android:textColor="#FFFFFF"
-			android:id="@+id/xda_summary"
 			android:layout_gravity="center|top" />
 
 		    <TextView

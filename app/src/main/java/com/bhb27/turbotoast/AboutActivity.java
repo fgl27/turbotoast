@@ -24,7 +24,7 @@ import android.widget.TextView;
 
 public class AboutActivity extends Activity {
     // in order of appearance
-    TextView about, version, dev_info, email, email_summary, xda, xda_summary, git, git_summary;
+    TextView about, version, dev_info, email, email_summary, xda, git, git_summary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +51,6 @@ public class AboutActivity extends Activity {
         xda = (TextView) findViewById(R.id.xda);
         xda.setText(R.string.xda_summary);
 
-        xda_summary = (TextView) findViewById(R.id.xda_summary);
-        xda_summary.setText(R.string.xda_summary);
-
         git = (TextView) findViewById(R.id.git);
         git.setText("GitHub");
 
@@ -76,13 +73,6 @@ public class AboutActivity extends Activity {
         });
 
         xda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981")));
-            }
-        });
-
-        xda_summary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981")));

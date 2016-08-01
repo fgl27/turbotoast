@@ -26,6 +26,15 @@
 			android:layout_gravity="top|end"
 			android:src="@drawable/in_quest"/>
 
+		    <ImageView
+			android:contentDescription="Xda_icon"
+			android:layout_marginTop="890dp"
+			android:layout_width="50dp"
+			android:layout_height="50dp"
+			android:id="@+id/ic_xda"
+			android:layout_gravity="top|start"
+			android:src="@drawable/ic_xda"/>
+
 		    <TextView
 			android:layout_marginTop="10dp"
 			android:layout_width="wrap_content"
