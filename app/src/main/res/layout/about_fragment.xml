@@ -62,7 +62,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
-			android:layout_marginTop="70dp"
+			android:layout_marginTop="65dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textStyle="bold"
@@ -72,7 +72,16 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
-			android:layout_marginTop="140dp"
+			android:layout_marginTop="95dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="16sp"
+			android:textColor="#FFFFFF"
+			android:id="@+id/version_summary"
+			android:layout_gravity="center|top" />
+
+		    <TextView
+			android:layout_marginTop="150dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textStyle="bold"

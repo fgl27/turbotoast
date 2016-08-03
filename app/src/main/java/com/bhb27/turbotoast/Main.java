@@ -52,8 +52,6 @@ public class Main extends PreferenceActivity {
             } else {
                 Toast.makeText(Main.this, getString(R.string.no_root_access), Toast.LENGTH_LONG).show();
             }
-        } else {
-            Toast.makeText(Main.this, getString(R.string.root_disable), Toast.LENGTH_LONG).show();
         }
 
         getPreferenceManager().findPreference("teste").setOnPreferenceClickListener(new OnPreferenceClickListener() {

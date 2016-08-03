@@ -27,7 +27,7 @@
         android:key="Root"
         android:title="@string/root"
         android:summary="@string/root_summary"
-	android:defaultValue="true" />
+	android:defaultValue="false" />
 
     <Preference
         android:title=""/>
