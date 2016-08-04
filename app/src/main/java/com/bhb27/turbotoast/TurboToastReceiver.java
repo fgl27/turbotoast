@@ -30,6 +30,14 @@ public class TurboToastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
+	// Force write default pref if the app was never was open, if it was Main will set pre to false
+	if (Tools.getBoolean("pre", true, context)) {
+		Tools.saveBoolean("TurboToast", true, context);
+		Tools.saveBoolean("Charge", true, context);
+		Tools.saveBoolean("Root", false, context);
+		Tools.saveBoolean("pre", false, context);
+	}
+
 	String action = intent.getAction();
 	// Android is sending undesirable DISCONNECTED at boot with make a toast even if there is no action on the POWER
 	Long time = SystemClock.elapsedRealtime();
@@ -69,8 +77,8 @@ public class TurboToastReceiver extends BroadcastReceiver {
                 }
             }
         }
-        // charge toast 150000 = 150 seconds
-        if ((Intent.ACTION_POWER_DISCONNECTED.equals(action)) && (Tools.getBoolean("Charge", true, context)) && (time > 150000)) {
+        // charge toast 75000 = 75 seconds
+        if ((Intent.ACTION_POWER_DISCONNECTED.equals(action)) && (Tools.getBoolean("Charge", true, context)) && (time > 75000)) {
             if (Tools.getBoolean("Root", true, context)) {
                 if (RootUtils.rooted() && RootUtils.rootAccess())
                     Toast.makeText(context, (context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity() + "%"), Toast.LENGTH_LONG).show();

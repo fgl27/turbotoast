@@ -38,6 +38,10 @@ public class Tools implements Constants {
      */
     public final static String TAG = "Turbotoast";
 
+    public static void saveBoolean(String name, boolean value, Context context) {
+        context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE).edit().putBoolean(name, value).apply();
+    }
+
     public static boolean getBoolean(String name, boolean defaults, Context context) {
         try {
             return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE).getBoolean(name, defaults);
