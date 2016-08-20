@@ -33,7 +33,7 @@
     <string name="about">About TurboToast</string>
     <string name="dev_info">Developer information:</string>
     <string name="git_summary">This is a open source app check it on my github\ngithub.com/bhb27/turbotoast</string>
-    <string name="version">Version 1.0.3 (Special ResurrectionRemix)</string>
+    <string name="version">Version 1.0.4 (Special ResurrectionRemix)</string>
     <string name="version_summary">This version can run without Root access, but can only work like this on BHB27 Kernel or CM-13.0 Kernel Mod by BHB27</string>
     <string name="xda_summary">XDA support forum site</string>
 </resources>
