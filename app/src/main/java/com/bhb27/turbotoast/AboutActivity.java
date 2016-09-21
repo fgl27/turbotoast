@@ -24,7 +24,7 @@ import android.widget.TextView;
 
 public class AboutActivity extends Activity {
     // in order of appearance
-    TextView about, version, dev_info, email, email_summary, xda, git, git_summary;
+    TextView about, version, version_number, dev_info, email, email_summary, xda, git, git_summary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,9 @@ public class AboutActivity extends Activity {
 
         version = (TextView) findViewById(R.id.version);
         version.setText(R.string.version);
+
+        version = (TextView) findViewById(R.id.version_number);
+        version.setText(R.string.version_number);
 
         dev_info = (TextView) findViewById(R.id.dev_info);
         dev_info.setText(R.string.dev_info);
