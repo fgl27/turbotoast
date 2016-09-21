@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
 
     defaultConfig {
         applicationId "com.bhb27.turbotoast"
-        minSdkVersion 21
-        targetSdkVersion 23
+        minSdkVersion 9
+        targetSdkVersion 24
         versionCode 27
-        versionName "1.0.4"
+        versionName "1.0.5"
     }
     buildTypes {
         release {

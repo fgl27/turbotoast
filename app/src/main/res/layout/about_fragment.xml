@@ -26,7 +26,7 @@
 
 		    <ImageView
 			android:contentDescription="Gmail_icon"
-			android:layout_marginTop="190dp"
+			android:layout_marginTop="240dp"
 			android:layout_width="50dp"
 			android:layout_height="50dp"
 			android:id="@+id/gmail"
@@ -35,7 +35,7 @@
 
 		    <ImageView
 			android:contentDescription="Xda_icon"
-			android:layout_marginTop="280dp"
+			android:layout_marginTop="330dp"
 			android:layout_width="50dp"
 			android:layout_height="50dp"
 			android:id="@+id/ic_xda"
@@ -44,7 +44,7 @@
 
 		    <ImageView
 			android:contentDescription="GitHub_icon"
-			android:layout_marginTop="340dp"
+			android:layout_marginTop="390dp"
 			android:layout_width="50dp"
 			android:layout_height="50dp"
 			android:id="@+id/ic_git"
@@ -72,7 +72,17 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
-			android:layout_marginTop="95dp"
+			android:layout_marginTop="90dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:textSize="20sp"
+			android:textColor="#FFFFFF"
+			android:id="@+id/version_number"
+			android:layout_gravity="center|top" />
+
+		    <TextView
+			android:layout_marginTop="130dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textSize="16sp"
@@ -81,7 +91,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
-			android:layout_marginTop="150dp"
+			android:layout_marginTop="200dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textStyle="bold"
@@ -91,7 +101,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
-			android:layout_marginTop="190dp"
+			android:layout_marginTop="230dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textStyle="bold"
@@ -101,7 +111,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
-			android:layout_marginTop="215dp"
+			android:layout_marginTop="255dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textSize="18sp"
@@ -110,7 +120,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
-			android:layout_marginTop="290dp"
+			android:layout_marginTop="340dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textStyle="bold"
@@ -120,7 +130,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
-			android:layout_marginTop="370dp"
+			android:layout_marginTop="410dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textStyle="bold"
@@ -130,7 +140,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
-			android:layout_marginTop="395dp"
+			android:layout_marginTop="445dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textSize="18sp"
@@ -139,7 +149,7 @@
 			android:layout_gravity="center|top" />
 
 		    <TextView
-			android:layout_marginTop="750dp"
+			android:layout_marginTop="800dp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textSize="18sp"

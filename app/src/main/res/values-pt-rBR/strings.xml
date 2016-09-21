@@ -31,7 +31,7 @@
     <string name="about">Sobre TurboToast</string>
     <string name="dev_info">Informações do Desenvolvedor:</string>
     <string name="git_summary">Este app é open source confira no meu github\ngithub.com/bhb27/turbotoast</string>
-    <string name="version">Versão 1.0.4 (Espscial ResurrectionRemix)</string>
+    <string name="version">Versão</string>
     <string name="version_summary">Esta versão funciona sem acesso root mas somente em uma ROM que usa BHB27 Kernel ou CM-13.0 Kernel Mod by BHB27</string>
     <string name="xda_summary">XDA forum de suporte</string>
 </resources>
