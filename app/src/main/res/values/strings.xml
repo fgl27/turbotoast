@@ -34,7 +34,19 @@
     <string name="dev_info">Developer information:</string>
     <string name="git_summary">This is a open source app check it on my github\ngithub.com/bhb27/turbotoast</string>
     <string name="version">Version</string>
-    <string name="version_number">1.0.5</string>
+    <string name="version_number">1.0.6</string>
     <string name="version_summary">This version can run without Root access, but can only work like this on BHB27 Kernel or CM-13.0 Kernel Mod by BHB27</string>
     <string name="xda_summary">XDA support forum site</string>
+    <string name="email">Email</string>
+    <string name="email_summary">fglfgl27@gmail.com</string>
+    <string name="github">GitHub</string>
+    <string name="no_email_client">There is no email client installed on the device.</string>
+    <string name="no_browser">There is no web browser installed on the device.</string>
+    <!--images-->
+    <string name="github_icon">Git hub Icon</string>
+    <string name="xda_icon">XDA Icon</string>
+    <string name="gmail_icon">Gmail Icon</string>
+    <string name="app_icon">App Icon</string>
+    <string name="question_mark_icon">Question mark icon</string>
+
 </resources>

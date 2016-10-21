@@ -2,18 +2,19 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    buildToolsVersion "24.0.3"
 
     defaultConfig {
         applicationId "com.bhb27.turbotoast"
-        minSdkVersion 9
+        minSdkVersion 13
         targetSdkVersion 24
         versionCode 27
-        versionName "1.0.5"
+        versionName "1.0.6"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

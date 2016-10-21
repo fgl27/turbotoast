@@ -1,17 +1,21 @@
 /*
- * Copyright (C) 2016 Felipe de Leon
+ * Copyright (C) 2016 Felipe de Leon fglfgl27@gmail.com
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * This file is part of Kernel Adiutor.
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * Kernel Adiutor is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Kernel Adiutor is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Kernel Adiutor.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
 package com.bhb27.turbotoast;
 
@@ -30,17 +34,9 @@ public class TurboToastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-	// Force write default pref if the app was never was open, if it was Main will set pre to false
-	if (Tools.getBoolean("pre", true, context)) {
-		Tools.saveBoolean("TurboToast", true, context);
-		Tools.saveBoolean("Charge", true, context);
-		Tools.saveBoolean("Root", false, context);
-		Tools.saveBoolean("pre", false, context);
-	}
-
-	String action = intent.getAction();
-	// Android is sending undesirable DISCONNECTED at boot with make a toast even if there is no action on the POWER
-	Long time = SystemClock.elapsedRealtime();
+        String action = intent.getAction();
+        // Android is sending undesirable DISCONNECTED at boot with make a toast even if there is no action on the POWER
+        Long time = SystemClock.elapsedRealtime();
 
         // turbotoast
         if ((Intent.ACTION_POWER_CONNECTED.equals(action)) && (Tools.getBoolean("TurboToast", true, context))) {
@@ -77,8 +73,8 @@ public class TurboToastReceiver extends BroadcastReceiver {
                 }
             }
         }
-        // charge toast 75000 = 75 seconds
-        if ((Intent.ACTION_POWER_DISCONNECTED.equals(action)) && (Tools.getBoolean("Charge", true, context)) && (time > 75000)) {
+        // charge toast 150000 = 150 seconds
+        if ((Intent.ACTION_POWER_DISCONNECTED.equals(action)) && (Tools.getBoolean("Charge", true, context)) && (time > 150000)) {
             if (Tools.getBoolean("Root", true, context)) {
                 if (RootUtils.rooted() && RootUtils.rootAccess())
                     Toast.makeText(context, (context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity() + "%"), Toast.LENGTH_LONG).show();
@@ -86,6 +82,6 @@ public class TurboToastReceiver extends BroadcastReceiver {
                     Toast.makeText(context, (context.getResources().getString(R.string.no_root_access)), Toast.LENGTH_LONG).show();
             } else
                 Toast.makeText(context, (context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacityN() + "%"), Toast.LENGTH_LONG).show();
-	}
+        }
     }
 }
