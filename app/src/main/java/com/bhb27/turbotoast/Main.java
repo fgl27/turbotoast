@@ -1,17 +1,21 @@
 /*
- * Copyright (C) 2016 Felipe de Leon
+ * Copyright (C) 2016 Felipe de Leon fglfgl27@gmail.com
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * This file is part of Kernel Adiutor.
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ * Kernel Adiutor is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Kernel Adiutor is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Kernel Adiutor.  If not, see <http://www.gnu.org/licenses/>.
+ *
  */
 package com.bhb27.turbotoast;
 
@@ -23,10 +27,12 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.view.Gravity;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
-
-import android.widget.Toast;
+import java.io.File;
 
 import com.bhb27.turbotoast.Tools;
 import com.bhb27.turbotoast.Constants;
@@ -48,12 +54,12 @@ public class Main extends PreferenceActivity {
         boolean RootTag = prefs.getBoolean("Root", false);
         if (RootTag == true) {
             if (RootUtils.rooted() && RootUtils.rootAccess()) {
-                Toast.makeText(Main.this, getString(R.string.root_guaranteed), Toast.LENGTH_SHORT).show();
+                DoAToast(getString(R.string.root_guaranteed));
             } else {
-                Toast.makeText(Main.this, getString(R.string.no_root_access), Toast.LENGTH_LONG).show();
+                DoAToast(getString(R.string.no_root_access));
             }
         } else {
-            Toast.makeText(Main.this, getString(R.string.root_disable), Toast.LENGTH_LONG).show();
+            DoAToast(getString(R.string.root_disable));
         }
 
         getPreferenceManager().findPreference("teste").setOnPreferenceClickListener(new OnPreferenceClickListener() {
@@ -64,14 +70,14 @@ public class Main extends PreferenceActivity {
                 boolean RootTag = prefs.getBoolean("Root", false);
                 if (RootTag == true) {
                     if (RootUtils.rooted() && RootUtils.rootAccess()) {
-                        Toast.makeText(Main.this, getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + "                " + Tools.getChargingType(), Toast.LENGTH_LONG).show();
+                        DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingType());
                         return true;
                     } else {
-                        Toast.makeText(Main.this, getString(R.string.no_root_access), Toast.LENGTH_LONG).show();
+                        DoAToast(getString(R.string.no_root_access));
                         return true;
                     }
                 } else {
-                    Toast.makeText(Main.this, getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + "                " + Tools.getChargingTypeN(), Toast.LENGTH_LONG).show();
+                    DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingTypeN());
                     return true;
                 }
             }
@@ -92,5 +98,13 @@ public class Main extends PreferenceActivity {
                 return true;
             }
         });
+    }
+
+    // simple toast function to center the message
+    public void DoAToast(String message) {
+        Toast toast = Toast.makeText(Main.this, message, Toast.LENGTH_SHORT);
+        TextView view = (TextView) toast.getView().findViewById(android.R.id.message);
+        if (view != null) view.setGravity(Gravity.CENTER);
+        toast.show();
     }
 }
