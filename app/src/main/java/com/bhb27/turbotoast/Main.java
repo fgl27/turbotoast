@@ -47,6 +47,8 @@ public class Main extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         getPreferenceManager().setSharedPreferencesName(Constants.PREF_NAME);
         addPreferencesFromResource(R.xml.preferences);
+	// Set this to false empty pref are not load on preference.xml
+	Tools.saveBoolean("pre", false, this);   
 
         // check on init if Root is enable if yes try to start Root
         String settingsTAG = "pref";
