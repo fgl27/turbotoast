@@ -21,6 +21,7 @@ package com.bhb27.turbotoast;
 
 public interface Constants {
 
+    String TAG = "Turbotoast";
     String PREF_NAME = "pref";
 
     // Battery values works for quark and maybe other Moto devices

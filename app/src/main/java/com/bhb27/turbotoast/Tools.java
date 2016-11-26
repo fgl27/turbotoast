@@ -38,11 +38,6 @@ import com.bhb27.turbotoast.TurboToastReceiver;
 
 public class Tools implements Constants {
 
-    /**
-     * Debugging TAG
-     */
-    public final static String TAG = "Turbotoast";
-
     public static void saveBoolean(String name, boolean value, Context context) {
         context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE).edit().putBoolean(name, value).apply();
     }
