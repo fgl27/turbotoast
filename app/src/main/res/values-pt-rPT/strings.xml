@@ -34,6 +34,6 @@
     <string name="no_email_client">Não há nenhum cliente de email instalado no dispositivo.</string>
     <string name="no_browser">Não há nenhum navegador de web instalado no dispositivo.</string>
     <string name="version">Versão</string>
-    <string name="version_summary">Esta versão funciona sem acesso root mas somente em uma ROM que usa BHB27 Kernel ou CM Kernel Mod by BHB27</string>
+    <string name="version_summary">Esta versão funciona sem acesso root mas somente em uma ROM do bhb27</string>
     <string name="xda_summary">XDA forum de suporte</string>
 </resources>
