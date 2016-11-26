@@ -23,6 +23,7 @@ package com.bhb27.turbotoast.root;
 import android.util.Log;
 
 import com.bhb27.turbotoast.Tools;
+import com.bhb27.turbotoast.Constants;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -119,7 +120,7 @@ public class RootUtils {
                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(process.getOutputStream()));
                 bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             } catch (IOException e) {
-                Log.e(Tools.TAG, root ? "Failed to run shell as su" : "Failed to run shell as sh");
+                Log.e(Constants.TAG, root ? "Failed to run shell as su" : "Failed to run shell as sh");
                 denied = true;
                 closed = true;
             }
@@ -143,6 +144,8 @@ public class RootUtils {
                 }
                 firstTry = false;
                 return sb.toString().trim();
+            } catch (NullPointerException e) {
+                Log.e(Constants.TAG, "catch NullPointerException running as Su");
             } catch (IOException e) {
                 closed = true;
                 e.printStackTrace();
@@ -162,8 +165,10 @@ public class RootUtils {
                 bufferedWriter.flush();
 
                 process.waitFor();
-                Log.i(Tools.TAG, root ? "SU closed: " + process.exitValue() : "SH closed: " + process.exitValue());
+                Log.i(Constants.TAG, root ? "SU closed: " + process.exitValue() : "SH closed: " + process.exitValue());
                 closed = true;
+            } catch (NullPointerException e) {
+                Log.e(Constants.TAG, "catch NullPointerException close Su");
             } catch (Exception e) {
                 e.printStackTrace();
             }
