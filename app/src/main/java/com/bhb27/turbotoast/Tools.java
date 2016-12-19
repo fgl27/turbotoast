@@ -24,6 +24,9 @@ package com.bhb27.turbotoast;
 import android.content.Context;
 
 import android.util.Log;
+import android.view.Gravity;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -37,6 +40,14 @@ import com.bhb27.turbotoast.Constants;
 import com.bhb27.turbotoast.TurboToastReceiver;
 
 public class Tools implements Constants {
+
+    // simple toast function to center the message Main.this
+    public void DoAToast(String message, Context context) {
+        Toast toast = Toast.makeText(context, message, Toast.LENGTH_LONG);
+        TextView view = (TextView) toast.getView().findViewById(android.R.id.message);
+        if (view != null) view.setGravity(Gravity.CENTER);
+        toast.show();
+    }
 
     public static void saveBoolean(String name, boolean value, Context context) {
         context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE).edit().putBoolean(name, value).apply();

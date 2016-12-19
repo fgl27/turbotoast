@@ -20,6 +20,7 @@
 package com.bhb27.turbotoast;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ActivityNotFoundException;
 import android.net.Uri;
@@ -30,15 +31,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bhb27.turbotoast.Tools;
+import com.bhb27.turbotoast.BuildConfig;
+
 public class AboutActivity extends Activity {
     // in order of appearance
     TextView about, version, version_number, dev_info, email, email_summary, xda, git, git_summary;
     ImageView ic_gmail, ic_xda, ic_git;
 
+    private final Tools tools_class = new Tools();
+    private Context AboutContext = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about_fragment);
+        AboutContext = this;
 
         View frameLayout = findViewById(R.id.aboutLayout);
 
@@ -50,7 +58,7 @@ public class AboutActivity extends Activity {
         version.setText(getString(R.string.version));
 
         version_number = (TextView) findViewById(R.id.version_number);
-        version_number.setText(getString(R.string.version_number));
+        version_number.setText(BuildConfig.VERSION_NAME);
 
         dev_info = (TextView) findViewById(R.id.dev_info);
         dev_info.setText(getString(R.string.dev_info));
@@ -74,9 +82,10 @@ public class AboutActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:fglfgl27@gmail.com")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:fglfgl27@gmail.com"))
+                        .putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME));
                 } catch (ActivityNotFoundException ex) {
-                    DoAToast(getString(R.string.no_email_client));
+                    tools_class.DoAToast(getString(R.string.no_email_client), AboutContext);
                 }
             }
         });
@@ -85,9 +94,10 @@ public class AboutActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:fglfgl27@gmail.com")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:fglfgl27@gmail.com"))
+                        .putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME));
                 } catch (ActivityNotFoundException ex) {
-                    DoAToast(getString(R.string.no_email_client));
+                    tools_class.DoAToast(getString(R.string.no_email_client), AboutContext);
                 }
             }
         });
@@ -98,7 +108,7 @@ public class AboutActivity extends Activity {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981")));
                 } catch (ActivityNotFoundException ex) {
-                    DoAToast(getString(R.string.no_browser));
+                    tools_class.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
             }
         });
@@ -109,7 +119,7 @@ public class AboutActivity extends Activity {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/bhb27/turbotoast")));
                 } catch (ActivityNotFoundException ex) {
-                    DoAToast(getString(R.string.no_browser));
+                    tools_class.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
             }
         });
@@ -120,7 +130,7 @@ public class AboutActivity extends Activity {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/bhb27/turbotoast")));
                 } catch (ActivityNotFoundException ex) {
-                    DoAToast(getString(R.string.no_browser));
+                    tools_class.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
             }
         });
@@ -134,9 +144,10 @@ public class AboutActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:fglfgl27@gmail.com")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:fglfgl27@gmail.com"))
+                        .putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME));
                 } catch (ActivityNotFoundException ex) {
-                    DoAToast(getString(R.string.no_email_client));
+                    tools_class.DoAToast(getString(R.string.no_email_client), AboutContext);
                 }
             }
         });
@@ -147,7 +158,7 @@ public class AboutActivity extends Activity {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981")));
                 } catch (ActivityNotFoundException ex) {
-                    DoAToast(getString(R.string.no_browser));
+                    tools_class.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
             }
         });
@@ -158,17 +169,9 @@ public class AboutActivity extends Activity {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/bhb27/turbotoast")));
                 } catch (ActivityNotFoundException ex) {
-                    DoAToast(getString(R.string.no_browser));
+                    tools_class.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
             }
         });
-    }
-
-    // simple toast function to center the message
-    public void DoAToast(String message) {
-        Toast toast = Toast.makeText(AboutActivity.this, message, Toast.LENGTH_SHORT);
-        TextView view = (TextView) toast.getView().findViewById(android.R.id.message);
-        if (view != null) view.setGravity(Gravity.CENTER);
-        toast.show();
     }
 }
