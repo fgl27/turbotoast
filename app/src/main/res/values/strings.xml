@@ -34,7 +34,6 @@
     <string name="dev_info">Developer information:</string>
     <string name="git_summary">This is a open source app check it on my github\ngithub.com/bhb27/turbotoast</string>
     <string name="version">Version</string>
-    <string name="version_number">1.0.8</string>
     <string name="version_summary">This version can run without Root access on bhb27 ROM</string>
     <string name="xda_summary">XDA support forum site</string>
     <string name="email">Email</string>

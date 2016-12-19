@@ -19,92 +19,90 @@
  */
 package com.bhb27.turbotoast;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.content.SharedPreferences;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
+import android.preference.PreferenceFragment;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.view.Gravity;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.IOException;
-import java.io.File;
-
-import com.bhb27.turbotoast.Tools;
-import com.bhb27.turbotoast.Constants;
 import com.bhb27.turbotoast.AboutActivity;
+import com.bhb27.turbotoast.Constants;
 import com.bhb27.turbotoast.FaqActivity;
 import com.bhb27.turbotoast.root.RootUtils;
+import com.bhb27.turbotoast.Tools;
 
-public class Main extends PreferenceActivity {
+public class Main extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getPreferenceManager().setSharedPreferencesName(Constants.PREF_NAME);
-        addPreferencesFromResource(R.xml.preferences);
-	// Set this to false empty pref are not load on preference.xml
-	Tools.saveBoolean("pre", false, this);   
 
-        // check on init if Root is enable if yes try to start Root
-        String settingsTAG = "pref";
-        SharedPreferences prefs = getSharedPreferences(settingsTAG, 0);
-        boolean RootTag = prefs.getBoolean("Root", false);
-        if (RootTag == true) {
-            if (RootUtils.rooted() && RootUtils.rootAccess()) {
-                DoAToast(getString(R.string.root_guaranteed));
-            } else {
-                DoAToast(getString(R.string.no_root_access));
-            }
-        }
-
-        getPreferenceManager().findPreference("teste").setOnPreferenceClickListener(new OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                String settingsTAG = "pref";
-                SharedPreferences prefs = getSharedPreferences(settingsTAG, 0);
-                boolean RootTag = prefs.getBoolean("Root", false);
-                if (RootTag == true) {
-                    if (RootUtils.rooted() && RootUtils.rootAccess()) {
-                        DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingType());
-                        return true;
-                    } else {
-                        DoAToast(getString(R.string.no_root_access));
-                        return true;
-                    }
-                } else {
-                    DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingTypeN());
-                    return true;
-                }
-            }
-        });
-        getPreferenceManager().findPreference("about").setOnPreferenceClickListener(new OnPreferenceClickListener() {
-            Intent myIntent = new Intent(getApplicationContext(), AboutActivity.class);
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                startActivity(myIntent);
-                return true;
-            }
-        });
-        getPreferenceManager().findPreference("faq").setOnPreferenceClickListener(new OnPreferenceClickListener() {
-            Intent myIntent = new Intent(getApplicationContext(), FaqActivity.class);
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                startActivity(myIntent);
-                return true;
-            }
-        });
+        getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
     }
 
-    // simple toast function to center the message
-    public void DoAToast(String message) {
-        Toast toast = Toast.makeText(Main.this, message, Toast.LENGTH_SHORT);
-        TextView view = (TextView) toast.getView().findViewById(android.R.id.message);
-        if (view != null) view.setGravity(Gravity.CENTER);
-        toast.show();
+    public static class MyPreferenceFragment extends PreferenceFragment {
+
+        private final String settingsTAG = Constants.PREF_NAME;
+
+        @Override
+        public void onCreate(final Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            getPreferenceManager().setSharedPreferencesName(settingsTAG);
+            addPreferencesFromResource(R.xml.preferences);
+            // Set this to false empty pref are not load on preference.xml
+            Tools.saveBoolean("pre", false, getActivity());
+            final Tools tools_class = new Tools();
+            // check on init if Root is enable if yes try to start Root
+            SharedPreferences prefs = getActivity().getSharedPreferences(settingsTAG, 0);
+            boolean RootTag = prefs.getBoolean("Root", false);
+            if (RootTag == true) {
+                if (RootUtils.rooted() && RootUtils.rootAccess()) {
+                    tools_class.DoAToast(getString(R.string.root_guaranteed), getActivity());
+                } else {
+                    tools_class.DoAToast(getString(R.string.no_root_access), getActivity());
+                }
+            }
+
+            getPreferenceManager().findPreference("teste").setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    String settingsTAG = "pref";
+                    SharedPreferences prefs = getActivity().getSharedPreferences(settingsTAG, 0);
+                    boolean RootTag = prefs.getBoolean("Root", false);
+                    if (RootTag == true) {
+                        if (RootUtils.rooted() && RootUtils.rootAccess()) {
+                            tools_class.DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingType(), getActivity());
+                            return true;
+                        } else {
+                            tools_class.DoAToast(getString(R.string.no_root_access), getActivity());
+                            return true;
+                        }
+                    } else {
+                        tools_class.DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingTypeN(), getActivity());
+                        return true;
+                    }
+                }
+            });
+            getPreferenceManager().findPreference("about").setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                Intent myIntent = new Intent(getActivity(), AboutActivity.class);
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    startActivity(myIntent);
+                    return true;
+                }
+            });
+            getPreferenceManager().findPreference("faq").setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                Intent myIntent = new Intent(getActivity(), FaqActivity.class);
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    startActivity(myIntent);
+                    return true;
+                }
+            });
+        }
     }
 }
