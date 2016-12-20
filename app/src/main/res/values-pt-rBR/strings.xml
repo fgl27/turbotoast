@@ -24,7 +24,7 @@
     <!-- root -->
     <string name="root">Permissão de acesso Root</string>
     <string name="root_summary">Ative para dar ao app permissão de acesso Root permission, em alguns aparelhos é preciso receber o valore correto para as mensagens</string>
-    <string name="root_disable">Root desabilitado, O app pode não conseguir mostrar as corretas mensagens sem acesso ROOT</string>
+    <!--     <string name="root_disable">Root desabilitado, O app pode não conseguir mostrar as corretas mensagens sem acesso ROOT</string> -->
     <string name="no_root_access">TurboToast!!!\nPermisão de acesso Root ativa no app, mas o app não tem acesso Root\n\nFavor conferir o Root ou desabilite a opção no app</string>
     <string name="root_guaranteed">TurboToast!\nAcesso Root funcionado</string>
     <!-- about -->

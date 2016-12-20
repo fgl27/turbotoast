@@ -24,7 +24,7 @@
     <!-- root -->
     <string name="root">Acceso Root</string>
     <string name="root_summary">Habilitar para dar acceso Root a la aplicacion, en algunos dispositivos puede necesitar permisos de root para leer el estado del kernel para el tipo cargador</string>
-    <string name="root_disable">Root bloqueado, la aplicacion no puede mostar Toast sin el acceso Root</string>
+    <!--     <string name="root_disable">Root bloqueado, la aplicacion no puede mostar Toast sin el acceso Root</string> -->
     <string name="no_root_access">TurboToast!!!\nRoot habilitado en la aplicación, pero la aplicación no tiene acceso Root\n\nPor favor, compruebe el acceso Root o deshabilitar el acceso Root</string>
     <string name="root_guaranteed">TurboToast!\nAcceso Root permitido</string>
     <!-- about -->
