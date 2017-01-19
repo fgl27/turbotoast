@@ -42,51 +42,36 @@ public class TurboToastReceiver extends BroadcastReceiver {
 	}
 
         String action = intent.getAction();
+        boolean RootEnable = Tools.getBoolean("Root", true, context);
+        if (RootEnable && !RootUtils.rootAccess()) {
+            Tools.DoAToast((context.getResources().getString(R.string.no_root_access)), context);
+            return;
+        }
         // Android is sending undesirable DISCONNECTED at boot with make a toast even if there is no action on the POWER
         Long time = SystemClock.elapsedRealtime();
 
         // turbotoast
-        if ((Intent.ACTION_POWER_CONNECTED.equals(action)) && (Tools.getBoolean("TurboToast", true, context))) {
-            if (Tools.getBoolean("Root", true, context)) {
-                if (RootUtils.rooted() && RootUtils.rootAccess()) {
-                    // in average the toast display in 2s add a litle more time just to make shore
-                    for (int i = 0; i < 50; i++) {
-                        if (Tools.getChargingType().equals("Turbo")) {
-                            Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);
-                            break;
-                        } else {
-                            try {
-                                Thread.sleep(100);
-                            } catch (InterruptedException ex) {
-                                Thread.currentThread().interrupt();
-                            }
-                        }
-                    }
-                } else Tools.DoAToast((context.getResources().getString(R.string.no_root_access)), context);
+        if ((Intent.ACTION_POWER_CONNECTED.equals(action)) && (Tools.getBoolean("TurboToast", true, context)))
+            TurboToast(RootEnable, context);
+
+        // charge toast 150000 = 150 seconds
+        if ((Intent.ACTION_POWER_DISCONNECTED.equals(action)) && (Tools.getBoolean("Charge", true, context)) && (time > 150000))
+            Tools.DoAToast((context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity(RootEnable) + "%"), context);
+    }
+
+    public void TurboToast(boolean root, Context context) {
+        // in average the toast display in 2s add a litle more time just to make shore
+        for (int i = 0; i < 50; i++) {
+            if (Tools.getChargingType(root).equals("Turbo")) {
+                Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);
+                break;
             } else {
-                // in average the toast display in 2s add a litle more time just to make shore
-                for (int i = 0; i < 50; i++) {
-                    if (Tools.getChargingTypeN().equals("Turbo")) {
-                        Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);
-                        break;
-                    } else {
-                        try {
-                            Thread.sleep(100);
-                        } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                        }
-                    }
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
                 }
             }
-        }
-        // charge toast 250000 = 250 seconds
-        if ((Intent.ACTION_POWER_DISCONNECTED.equals(action)) && (Tools.getBoolean("Charge", true, context)) && (time > 250000)) {
-            if (Tools.getBoolean("Root", true, context)) {
-                if (RootUtils.rooted() && RootUtils.rootAccess())
-                    Tools.DoAToast((context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity() + "%"), context);
-                else
-                    Tools.DoAToast((context.getResources().getString(R.string.no_root_access)), context);
-            } else Tools.DoAToast((context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacityN() + "%"), context);
         }
     }
 }

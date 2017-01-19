@@ -20,74 +20,60 @@
 package com.bhb27.turbotoast;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ActivityNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.bhb27.turbotoast.Tools;
 
 public class FaqActivity extends Activity {
     // in order of appearance
-    TextView faq, faq_charger, faq_charger_summary, faq_devices, faq_devices_summary, faq_no_toast, faq_no_toast_summary, faq_do_a_toast, faq_do_a_toast_summary, xda, xda_summary;
+    TextView xda;
+    ImageView ic_xda;
+    private Context FaqContext = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.faq_fragment);
+        FaqContext = this;
 
-        View frameLayout = findViewById(R.id.faqLayout);
-
-        faq = (TextView) findViewById(R.id.faq);
-        faq.setText(getString(R.string.faq));
-
-        faq_charger = (TextView) findViewById(R.id.faq_charger);
-        faq_charger.setText(getString(R.string.faq_charger));
-
-        faq_charger_summary = (TextView) findViewById(R.id.faq_charger_summary);
-        faq_charger_summary.setText(getString(R.string.faq_charger_summary));
-
-        faq_devices = (TextView) findViewById(R.id.faq_devices);
-        faq_devices.setText(getString(R.string.faq_devices));
-
-        faq_devices_summary = (TextView) findViewById(R.id.faq_devices_summary);
-        faq_devices_summary.setText(getString(R.string.faq_devices_summary));
-
-        faq_no_toast = (TextView) findViewById(R.id.faq_no_toast);
-        faq_no_toast.setText(getString(R.string.faq_no_toast));
-
-        faq_no_toast_summary = (TextView) findViewById(R.id.faq_no_toast_summary);
-        faq_no_toast_summary.setText(getString(R.string.faq_no_toast_summary));
-
-        faq_do_a_toast = (TextView) findViewById(R.id.faq_do_a_toast);
-        faq_do_a_toast.setText(getString(R.string.faq_do_a_toast));
-
-        faq_do_a_toast_summary = (TextView) findViewById(R.id.faq_do_a_toast_summary);
-        faq_do_a_toast_summary.setText(getString(R.string.faq_do_a_toast_summary));
+        LinearLayout layout = (LinearLayout) findViewById(R.id.faqLayout);
+        AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
+        animation.setFillAfter(true);
+        animation.setDuration(500);
+        layout.startAnimation(animation);
 
         xda = (TextView) findViewById(R.id.xda);
-        xda.setText(getString(R.string.xda_summary));
-
         xda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981")));
                 } catch (ActivityNotFoundException ex) {
-                    DoAToast(getString(R.string.no_browser));
+                    Tools.DoAToast(getString(R.string.no_browser), FaqContext);
                 }
             }
         });
-    }
 
-    // simple toast function to center the message
-    public void DoAToast(String message) {
-        Toast toast = Toast.makeText(FaqActivity.this, message, Toast.LENGTH_SHORT);
-        TextView view = (TextView) toast.getView().findViewById(android.R.id.message);
-        if (view != null) view.setGravity(Gravity.CENTER);
-        toast.show();
+        ic_xda = (ImageView) findViewById(R.id.ic_xda);
+        ic_xda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981")));
+                } catch (ActivityNotFoundException ex) {
+                    Tools.DoAToast(getString(R.string.no_browser), FaqContext);
+                }
+            }
+        });
     }
 }
