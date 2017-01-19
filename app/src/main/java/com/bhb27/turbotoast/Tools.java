@@ -62,61 +62,18 @@ public class Tools implements Constants {
     }
 
     /**
-     * Not as Root = N at the end
-     */
-
-    public static String getChargingTypeN() {
-        return StringreadFileN(BATTERY_CHARGING_TYPE);
-    }
-
-    public static String getChargeCapacityN() {
-        return StringreadFileN(BATTERY_CAPACITY);
-    }
-
-    public static String StringreadFileN(String file) {
-        return readFileN(file, true);
-    }
-
-    public static String readFileN(String file, boolean asRoot) {
-
-        StringBuilder s = null;
-        FileReader fileReader = null;
-        BufferedReader buf = null;
-        try {
-            fileReader = new FileReader(file);
-            buf = new BufferedReader(fileReader);
-
-            String line;
-            s = new StringBuilder();
-            while ((line = buf.readLine()) != null) s.append(line).append("\n");
-        } catch (FileNotFoundException ignored) {
-            Log.e(TAG, "File does not exist " + file);
-        } catch (IOException e) {
-            Log.e(TAG, "Failed to read " + file);
-        } finally {
-            try {
-                if (fileReader != null) fileReader.close();
-                if (buf != null) buf.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return s == null ? null : s.toString().trim();
-    }
-
-    /**
      * as Root
      */
-    public static String getChargingType() {
-        return StringreadFile(BATTERY_CHARGING_TYPE);
+    public static String getChargingType(boolean asRoot) {
+        return StringreadFile(BATTERY_CHARGING_TYPE, asRoot);
     }
 
-    public static String getChargeCapacity() {
-        return StringreadFile(BATTERY_CAPACITY);
+    public static String getChargeCapacity(boolean asRoot) {
+        return StringreadFile(BATTERY_CAPACITY, asRoot);
     }
 
-    public static String StringreadFile(String file) {
-        return readFile(file, true);
+    public static String StringreadFile(String file, boolean asRoot) {
+        return readFile(file, asRoot);
     }
 
     public static boolean existFile(String file, boolean asRoot) {

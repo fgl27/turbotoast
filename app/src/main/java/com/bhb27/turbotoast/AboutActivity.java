@@ -26,20 +26,21 @@ import android.content.ActivityNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Build;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bhb27.turbotoast.Tools;
 import com.bhb27.turbotoast.BuildConfig;
 
 public class AboutActivity extends Activity {
     // in order of appearance
-    TextView about, version, version_number, dev_info, email, email_summary, xda, git, git_summary;
+    TextView version_number, email, email_summary, xda, git, git_summary;
     ImageView ic_gmail, ic_xda, ic_git;
-    private final Tools tools_class = new Tools();
     private Context AboutContext = null;
 
     @Override
@@ -50,35 +51,21 @@ public class AboutActivity extends Activity {
         final String SUBJECT = getString(R.string.app_name) + " " +
             BuildConfig.VERSION_NAME + " (" + Build.MODEL + " " + Build.VERSION.RELEASE + ")";
 
-        View frameLayout = findViewById(R.id.aboutLayout);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.aboutLayout);
+        AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
+        animation.setFillAfter(true);
+        animation.setDuration(500);
+        layout.startAnimation(animation);
 
         //textview
-        about = (TextView) findViewById(R.id.about);
-        about.setText(getString(R.string.about));
-
-        version = (TextView) findViewById(R.id.version);
-        version.setText(getString(R.string.version));
-
         version_number = (TextView) findViewById(R.id.version_number);
         version_number.setText(BuildConfig.VERSION_NAME);
 
-        dev_info = (TextView) findViewById(R.id.dev_info);
-        dev_info.setText(getString(R.string.dev_info));
-
         email = (TextView) findViewById(R.id.email);
-        email.setText(getString(R.string.email));
-
         email_summary = (TextView) findViewById(R.id.email_summary);
-        email_summary.setText(getString(R.string.email_summary));
-
         xda = (TextView) findViewById(R.id.xda);
-        xda.setText(getString(R.string.xda_summary));
-
         git = (TextView) findViewById(R.id.git);
-        git.setText(getString(R.string.github));
-
         git_summary = (TextView) findViewById(R.id.git_summary);
-        git_summary.setText(getString(R.string.git_summary));
 
         email.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +74,7 @@ public class AboutActivity extends Activity {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:fglfgl27@gmail.com"))
                         .putExtra(Intent.EXTRA_SUBJECT, SUBJECT));
                 } catch (ActivityNotFoundException ex) {
-                    tools_class.DoAToast(getString(R.string.no_email_client), AboutContext);
+                    Tools.DoAToast(getString(R.string.no_email_client), AboutContext);
                 }
             }
         });
@@ -99,7 +86,7 @@ public class AboutActivity extends Activity {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:fglfgl27@gmail.com"))
                         .putExtra(Intent.EXTRA_SUBJECT, SUBJECT));
                 } catch (ActivityNotFoundException ex) {
-                    tools_class.DoAToast(getString(R.string.no_email_client), AboutContext);
+                    Tools.DoAToast(getString(R.string.no_email_client), AboutContext);
                 }
             }
         });
@@ -110,7 +97,7 @@ public class AboutActivity extends Activity {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981")));
                 } catch (ActivityNotFoundException ex) {
-                    tools_class.DoAToast(getString(R.string.no_browser), AboutContext);
+                    Tools.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
             }
         });
@@ -121,7 +108,7 @@ public class AboutActivity extends Activity {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/bhb27/turbotoast")));
                 } catch (ActivityNotFoundException ex) {
-                    tools_class.DoAToast(getString(R.string.no_browser), AboutContext);
+                    Tools.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
             }
         });
@@ -132,7 +119,7 @@ public class AboutActivity extends Activity {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/bhb27/turbotoast")));
                 } catch (ActivityNotFoundException ex) {
-                    tools_class.DoAToast(getString(R.string.no_browser), AboutContext);
+                    Tools.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
             }
         });
@@ -149,7 +136,7 @@ public class AboutActivity extends Activity {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:fglfgl27@gmail.com"))
                         .putExtra(Intent.EXTRA_SUBJECT, SUBJECT));
                 } catch (ActivityNotFoundException ex) {
-                    tools_class.DoAToast(getString(R.string.no_email_client), AboutContext);
+                    Tools.DoAToast(getString(R.string.no_email_client), AboutContext);
                 }
             }
         });
@@ -160,7 +147,7 @@ public class AboutActivity extends Activity {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981")));
                 } catch (ActivityNotFoundException ex) {
-                    tools_class.DoAToast(getString(R.string.no_browser), AboutContext);
+                    Tools.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
             }
         });
@@ -171,7 +158,7 @@ public class AboutActivity extends Activity {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/bhb27/turbotoast")));
                 } catch (ActivityNotFoundException ex) {
-                    tools_class.DoAToast(getString(R.string.no_browser), AboutContext);
+                    Tools.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
             }
         });

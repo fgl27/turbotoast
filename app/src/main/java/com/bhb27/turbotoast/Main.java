@@ -40,7 +40,6 @@ public class Main extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         getFragmentManager().beginTransaction().replace(android.R.id.content, new MyPreferenceFragment()).commit();
     }
 
@@ -55,10 +54,8 @@ public class Main extends Activity {
             addPreferencesFromResource(R.xml.preferences);
 
             // check on init if Root is enable if yes try to start Root
-            SharedPreferences prefs = getActivity().getSharedPreferences(settingsTAG, 0);
-            boolean RootTag = prefs.getBoolean("Root", false);
-            if (RootTag == true) {
-                if (RootUtils.rooted() && RootUtils.rootAccess()) {
+            if (Tools.getBoolean("Root", true, getActivity())) {
+                if (RootUtils.rootAccess()) {
                     Tools.DoAToast(getString(R.string.root_guaranteed), getActivity());
                 } else {
                     Tools.DoAToast(getString(R.string.no_root_access), getActivity());
@@ -70,21 +67,13 @@ public class Main extends Activity {
             getPreferenceManager().findPreference("teste").setOnPreferenceClickListener(new OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    String settingsTAG = "pref";
-                    SharedPreferences prefs = getActivity().getSharedPreferences(settingsTAG, 0);
-                    boolean RootTag = prefs.getBoolean("Root", false);
-                    if (RootTag == true) {
-                        if (RootUtils.rooted() && RootUtils.rootAccess()) {
-                            Tools.DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingType(), getActivity());
-                            return true;
-                        } else {
-                            Tools.DoAToast(getString(R.string.no_root_access), getActivity());
-                            return true;
-                        }
-                    } else {
-                        Tools.DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingTypeN(), getActivity());
+                    boolean root = Tools.getBoolean("Root", true, getActivity());
+                    if (root && !RootUtils.rootAccess()) {
+                        Tools.DoAToast(getString(R.string.no_root_access), getActivity());
                         return true;
                     }
+                    Tools.DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingType(root), getActivity());
+                    return true;
                 }
             });
             getPreferenceManager().findPreference("about").setOnPreferenceClickListener(new OnPreferenceClickListener() {

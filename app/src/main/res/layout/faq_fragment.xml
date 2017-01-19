@@ -9,20 +9,28 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#D1000000">
+        <ImageView
+            android:id="@+id/ic_launcher"
+            android:contentDescription="@string/app_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:src="@drawable/ic_launcher"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
             android:textStyle="bold"
             android:textSize="22sp"
             android:textColor="#FFFFFF"
             android:id="@+id/faq"
+            android:text="@string/faq"
             android:layout_gravity="center|top" />
         <ImageView
             android:contentDescription="@string/question_mark_icon"
             android:layout_marginTop="-35dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:id="@+id/ic_quest"
             android:layout_gravity="top|end"
             android:src="@drawable/in_quest" />
@@ -35,6 +43,7 @@
             android:textSize="20sp"
             android:textColor="#FFFFFF"
             android:id="@+id/faq_charger"
+            android:text="@string/faq_charger"
             android:layout_gravity="center|top" />
         <TextView
             android:textIsSelectable="true"
@@ -43,6 +52,7 @@
             android:textSize="16sp"
             android:textColor="#FFFFFF"
             android:id="@+id/faq_charger_summary"
+            android:text="@string/faq_charger_summary"
             android:layout_gravity="center|top" />
         <TextView
             android:textIsSelectable="true"
@@ -53,6 +63,7 @@
             android:textSize="20sp"
             android:textColor="#FFFFFF"
             android:id="@+id/faq_devices"
+            android:text="@string/faq_devices"
             android:layout_gravity="center|top" />
         <TextView
             android:textIsSelectable="true"
@@ -61,6 +72,7 @@
             android:textSize="16sp"
             android:textColor="#FFFFFF"
             android:id="@+id/faq_devices_summary"
+            android:text="@string/faq_devices_summary"
             android:layout_gravity="center|top" />
         <TextView
             android:textIsSelectable="true"
@@ -71,6 +83,7 @@
             android:textSize="20sp"
             android:textColor="#FFFFFF"
             android:id="@+id/faq_no_toast"
+            android:text="@string/faq_no_toast"
             android:layout_gravity="center|top" />
         <TextView
             android:textIsSelectable="true"
@@ -79,6 +92,7 @@
             android:textSize="16sp"
             android:textColor="#FFFFFF"
             android:id="@+id/faq_no_toast_summary"
+            android:text="@string/faq_no_toast_summary"
             android:layout_gravity="center|top" />
         <TextView
             android:textIsSelectable="true"
@@ -89,6 +103,7 @@
             android:textSize="20sp"
             android:textColor="#FFFFFF"
             android:id="@+id/faq_do_a_toast"
+            android:text="@string/faq_do_a_toast"
             android:layout_gravity="center|top" />
         <TextView
             android:textIsSelectable="true"
@@ -97,24 +112,26 @@
             android:textSize="16sp"
             android:textColor="#FFFFFF"
             android:id="@+id/faq_do_a_toast_summary"
+            android:text="@string/faq_do_a_toast_summary"
             android:layout_gravity="center|top" />
+        <ImageView
+            android:contentDescription="@string/xda_icon"
+            android:layout_marginTop="15dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/ic_xda"
+            android:layout_gravity="center|top"
+            android:src="@drawable/ic_xda" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="-15dp"
             android:textStyle="bold"
             android:textSize="20sp"
             android:textColor="#FFFFFF"
             android:id="@+id/xda"
+            android:text="@string/xda_summary"
             android:layout_gravity="center|top" />
-        <ImageView
-            android:contentDescription="@string/xda_icon"
-            android:layout_marginTop="-40dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/ic_xda"
-            android:layout_gravity="top|start"
-            android:src="@drawable/ic_xda" />
         <TextView
             android:layout_marginTop="100dp"
             android:layout_width="wrap_content"
