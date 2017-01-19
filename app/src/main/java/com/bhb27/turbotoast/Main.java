@@ -55,15 +55,15 @@ public class Main extends Activity {
             addPreferencesFromResource(R.xml.preferences);
             // Set this to false empty pref are not load on preference.xml
             Tools.saveBoolean("pre", false, getActivity());
-            final Tools tools_class = new Tools();
+
             // check on init if Root is enable if yes try to start Root
             SharedPreferences prefs = getActivity().getSharedPreferences(settingsTAG, 0);
             boolean RootTag = prefs.getBoolean("Root", false);
             if (RootTag == true) {
                 if (RootUtils.rooted() && RootUtils.rootAccess()) {
-                    tools_class.DoAToast(getString(R.string.root_guaranteed), getActivity());
+                    Tools.DoAToast(getString(R.string.root_guaranteed), getActivity());
                 } else {
-                    tools_class.DoAToast(getString(R.string.no_root_access), getActivity());
+                    Tools.DoAToast(getString(R.string.no_root_access), getActivity());
                 }
             }
 
@@ -75,14 +75,14 @@ public class Main extends Activity {
                     boolean RootTag = prefs.getBoolean("Root", false);
                     if (RootTag == true) {
                         if (RootUtils.rooted() && RootUtils.rootAccess()) {
-                            tools_class.DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingType(), getActivity());
+                            Tools.DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingType(), getActivity());
                             return true;
                         } else {
-                            tools_class.DoAToast(getString(R.string.no_root_access), getActivity());
+                            Tools.DoAToast(getString(R.string.no_root_access), getActivity());
                             return true;
                         }
                     } else {
-                        tools_class.DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingTypeN(), getActivity());
+                        Tools.DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingTypeN(), getActivity());
                         return true;
                     }
                 }

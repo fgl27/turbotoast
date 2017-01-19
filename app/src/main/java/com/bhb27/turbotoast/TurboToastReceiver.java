@@ -22,7 +22,6 @@ package com.bhb27.turbotoast;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.widget.Toast;
 import android.os.SystemClock;
 
 import com.bhb27.turbotoast.R;
@@ -53,8 +52,8 @@ public class TurboToastReceiver extends BroadcastReceiver {
                     // in average the toast display in 2s add a litle more time just to make shore
                     for (int i = 0; i < 50; i++) {
                         if (Tools.getChargingType().equals("Turbo")) {
-                            Toast.makeText(context, (context.getResources().getString(R.string.chargerconnected_turbo_toast)), Toast.LENGTH_LONG).show();
-                            i = 51;
+                            Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);
+                            break;
                         } else {
                             try {
                                 Thread.sleep(100);
@@ -63,14 +62,13 @@ public class TurboToastReceiver extends BroadcastReceiver {
                             }
                         }
                     }
-                } else
-                    Toast.makeText(context, (context.getResources().getString(R.string.no_root_access)), Toast.LENGTH_LONG).show();
+                } else Tools.DoAToast((context.getResources().getString(R.string.no_root_access)), context);
             } else {
                 // in average the toast display in 2s add a litle more time just to make shore
                 for (int i = 0; i < 50; i++) {
                     if (Tools.getChargingTypeN().equals("Turbo")) {
-                        Toast.makeText(context, (context.getResources().getString(R.string.chargerconnected_turbo_toast)), Toast.LENGTH_LONG).show();
-                        i = 51;
+                        Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);
+                        break;
                     } else {
                         try {
                             Thread.sleep(100);
@@ -85,11 +83,10 @@ public class TurboToastReceiver extends BroadcastReceiver {
         if ((Intent.ACTION_POWER_DISCONNECTED.equals(action)) && (Tools.getBoolean("Charge", true, context)) && (time > 250000)) {
             if (Tools.getBoolean("Root", true, context)) {
                 if (RootUtils.rooted() && RootUtils.rootAccess())
-                    Toast.makeText(context, (context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity() + "%"), Toast.LENGTH_LONG).show();
+                    Tools.DoAToast((context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity() + "%"), context);
                 else
-                    Toast.makeText(context, (context.getResources().getString(R.string.no_root_access)), Toast.LENGTH_LONG).show();
-            } else
-                Toast.makeText(context, (context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacityN() + "%"), Toast.LENGTH_LONG).show();
+                    Tools.DoAToast((context.getResources().getString(R.string.no_root_access)), context);
+            } else Tools.DoAToast((context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacityN() + "%"), context);
         }
     }
 }

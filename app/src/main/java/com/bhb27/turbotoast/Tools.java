@@ -42,7 +42,7 @@ import com.bhb27.turbotoast.TurboToastReceiver;
 public class Tools implements Constants {
 
     // simple toast function to center the message Main.this
-    public void DoAToast(String message, Context context) {
+    public static void DoAToast(String message, Context context) {
         Toast toast = Toast.makeText(context, message, Toast.LENGTH_LONG);
         TextView view = (TextView) toast.getView().findViewById(android.R.id.message);
         if (view != null) view.setGravity(Gravity.CENTER);
