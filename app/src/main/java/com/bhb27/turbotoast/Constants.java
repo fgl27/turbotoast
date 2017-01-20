@@ -26,12 +26,13 @@ public interface Constants {
 
     // Battery values works for quark and maybe other Moto devices
     String BATTERY_PARAMETERS = "/sys/class/power_supply/battery";
-    // Battery charging current
-    String BATTERY_CHARGING_CURRENT = BATTERY_PARAMETERS + "/current_avg";
     // Battery charging mode or rate type
-    String BATTERY_CHARGING_TYPE = BATTERY_PARAMETERS + "/charge_rate";
-    // Battery health
-    String BATTERY_HEALTH = BATTERY_PARAMETERS + "/health";
+    String BATTERY_CHARGING_TYPE    = BATTERY_PARAMETERS + "/charge_rate";
     // Battery %
-    String BATTERY_CAPACITY = BATTERY_PARAMETERS + "/capacity";
+    String BATTERY_CAPACITY         = BATTERY_PARAMETERS + "/capacity";
+
+    //links
+    String email_link = "mailto:fglfgl27@gmail.com";
+    String xda_link   = "http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981";
+    String git_link   = "https://github.com/bhb27/turbotoast";
 }

@@ -37,6 +37,8 @@ import com.bhb27.turbotoast.Tools;
 
 public class Main extends Activity {
 
+    private static boolean app_is_open = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,25 +47,26 @@ public class Main extends Activity {
 
     public static class MyPreferenceFragment extends PreferenceFragment {
 
-        private final String settingsTAG = Constants.PREF_NAME;
-
         @Override
         public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            getPreferenceManager().setSharedPreferencesName(settingsTAG);
+            getPreferenceManager().setSharedPreferencesName(Constants.PREF_NAME);
             addPreferencesFromResource(R.xml.preferences);
 
-            // check on init if Root is enable if yes try to start Root
-            if (Tools.getBoolean("Root", true, getActivity())) {
-                if (RootUtils.rootAccess()) {
-                    Tools.DoAToast(getString(R.string.root_guaranteed), getActivity());
-                } else {
-                    Tools.DoAToast(getString(R.string.no_root_access), getActivity());
-                }
-            } else {
-                Tools.DoAToast(getString(R.string.root_disable), getActivity());
-            }
-
+           // check on init if Root is enable if yes try to start Root
+           // use app_is_open bool to prevent the app from toast every time the display rotate 
+           if (app_is_open) {
+               if (Tools.getBoolean("Root", true, getActivity())) {
+                   if (RootUtils.rootAccess()) {
+                       Tools.DoAToast(getString(R.string.root_guaranteed), getActivity());
+                   } else {
+                       Tools.DoAToast(getString(R.string.no_root_access), getActivity());
+                   }
+               } else {
+                   Tools.DoAToast(getString(R.string.root_disable), getActivity());
+               }
+               app_is_open = false;
+           }
             getPreferenceManager().findPreference("teste").setOnPreferenceClickListener(new OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {

@@ -35,7 +35,10 @@ public class TurboToastReceiver extends BroadcastReceiver {
 
         String action = intent.getAction();
         boolean RootEnable = Tools.getBoolean("Root", true, context);
-        if (RootEnable && !RootUtils.rootAccess()) {
+        boolean TurboToast = Tools.getBoolean("TurboToast", true, context);
+        boolean Charge = Tools.getBoolean("Charge", true, context);
+        if (!TurboToast && !Charge) return;
+        else if (RootEnable && !RootUtils.rootAccess()) {
             Tools.DoAToast((context.getResources().getString(R.string.no_root_access)), context);
             return;
         }
@@ -43,15 +46,15 @@ public class TurboToastReceiver extends BroadcastReceiver {
         Long time = SystemClock.elapsedRealtime();
 
         // turbotoast
-        if ((Intent.ACTION_POWER_CONNECTED.equals(action)) && (Tools.getBoolean("TurboToast", true, context)))
-            TurboToast(RootEnable, context);
+        if (Intent.ACTION_POWER_CONNECTED.equals(action) && TurboToast)
+            DoTurboToast(RootEnable, context);
 
         // charge toast 150000 = 150 seconds
-        if ((Intent.ACTION_POWER_DISCONNECTED.equals(action)) && (Tools.getBoolean("Charge", true, context)) && (time > 150000))
+        if (Intent.ACTION_POWER_DISCONNECTED.equals(action) && Charge && (time > 150000))
             Tools.DoAToast((context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity(RootEnable) + "%"), context);
     }
 
-    public void TurboToast(boolean root, Context context) {
+    public void DoTurboToast(boolean root, Context context) {
         // in average the toast display in 2s add a litle more time just to make shore
         for (int i = 0; i < 50; i++) {
             if (Tools.getChargingType(root).equals("Turbo")) {

@@ -36,6 +36,7 @@ import android.widget.TextView;
 
 import com.bhb27.turbotoast.Tools;
 import com.bhb27.turbotoast.BuildConfig;
+import com.bhb27.turbotoast.Constants;
 
 public class AboutActivity extends Activity {
     // in order of appearance
@@ -51,7 +52,7 @@ public class AboutActivity extends Activity {
         final String SUBJECT = getString(R.string.app_name) + " " +
             BuildConfig.VERSION_NAME + " (" + Build.MODEL + " " + Build.VERSION.RELEASE + ")";
 
-        LinearLayout layout = (LinearLayout) findViewById(R.id.aboutLayout);
+        LinearLayout layout      = (LinearLayout) findViewById(R.id.aboutLayout);
         AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
         animation.setFillAfter(true);
         animation.setDuration(500);
@@ -59,19 +60,24 @@ public class AboutActivity extends Activity {
 
         //textview
         version_number = (TextView) findViewById(R.id.version_number);
+        email          = (TextView) findViewById(R.id.email);
+        email_summary  = (TextView) findViewById(R.id.email_summary);
+        xda            = (TextView) findViewById(R.id.xda);
+        git            = (TextView) findViewById(R.id.git);
+        git_summary    = (TextView) findViewById(R.id.git_summary);
+
         version_number.setText(BuildConfig.VERSION_NAME);
 
-        email = (TextView) findViewById(R.id.email);
-        email_summary = (TextView) findViewById(R.id.email_summary);
-        xda = (TextView) findViewById(R.id.xda);
-        git = (TextView) findViewById(R.id.git);
-        git_summary = (TextView) findViewById(R.id.git_summary);
+        //Link Strings
+        final String email_link = Constants.email_link;
+        final String xda_link   = Constants.xda_link;
+        final String git_link   = Constants.git_link;
 
         email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:fglfgl27@gmail.com"))
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(email_link))
                         .putExtra(Intent.EXTRA_SUBJECT, SUBJECT));
                 } catch (ActivityNotFoundException ex) {
                     Tools.DoAToast(getString(R.string.no_email_client), AboutContext);
@@ -83,7 +89,7 @@ public class AboutActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:fglfgl27@gmail.com"))
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(email_link))
                         .putExtra(Intent.EXTRA_SUBJECT, SUBJECT));
                 } catch (ActivityNotFoundException ex) {
                     Tools.DoAToast(getString(R.string.no_email_client), AboutContext);
@@ -95,7 +101,7 @@ public class AboutActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(xda_link)));
                 } catch (ActivityNotFoundException ex) {
                     Tools.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
@@ -106,7 +112,7 @@ public class AboutActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/bhb27/turbotoast")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(git_link)));
                 } catch (ActivityNotFoundException ex) {
                     Tools.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
@@ -117,7 +123,7 @@ public class AboutActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/bhb27/turbotoast")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(git_link)));
                 } catch (ActivityNotFoundException ex) {
                     Tools.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
@@ -133,7 +139,7 @@ public class AboutActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:fglfgl27@gmail.com"))
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(email_link))
                         .putExtra(Intent.EXTRA_SUBJECT, SUBJECT));
                 } catch (ActivityNotFoundException ex) {
                     Tools.DoAToast(getString(R.string.no_email_client), AboutContext);
@@ -145,7 +151,7 @@ public class AboutActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(xda_link)));
                 } catch (ActivityNotFoundException ex) {
                     Tools.DoAToast(getString(R.string.no_browser), AboutContext);
                 }
@@ -156,7 +162,7 @@ public class AboutActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/bhb27/turbotoast")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(git_link)));
                 } catch (ActivityNotFoundException ex) {
                     Tools.DoAToast(getString(R.string.no_browser), AboutContext);
                 }

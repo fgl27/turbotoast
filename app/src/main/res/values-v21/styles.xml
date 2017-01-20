@@ -6,8 +6,8 @@
     <style name="AppTheme" parent="android:style/Theme.Material.Light.DarkActionBar">
         <item name="android:textColorPrimary">@color/text_black</item>
         <item name="android:textColorSecondary">@color/text_black</item>
-        <item name="android:colorPrimary">#7F0000</item>
-        <item name="android:colorPrimaryDark">#660000</item>
+        <item name="android:colorPrimary">#8F0000</item>
+        <item name="android:colorPrimaryDark">#7F0000</item>
         <item name="android:colorAccent">#800000</item>
         <item name="android:windowBackground">@color/windowBackground</item>
     </style>
