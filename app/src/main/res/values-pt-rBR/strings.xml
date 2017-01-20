@@ -12,7 +12,6 @@
     <string name="test_a_toast">O estado atual do carregador é:\n\n</string>
     <!-- faq -->
     <string name="faq">Perguntas frequentes (FAQ) </string>
-    <string name="faq_summary">Click para acessar o Faq</string>
     <string name="faq_charger">Carregadores suportados?</string>
     <string name="faq_charger_summary">Qualquer carregador Qualcomm QuickCharge 2.0* ou o modelo renomeado pela Motorola como \u0022 Carregador Turbo\u0022\n*Provavelmente supporta Qualcomm QuickCharge 3.0 não testado ainda</string>
     <string name="faq_devices">Aparelhos suportados?</string>

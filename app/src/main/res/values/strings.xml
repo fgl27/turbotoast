@@ -14,7 +14,6 @@
     <string name="test_a_toast">Current Charging type is:\n\n</string>
     <!-- faq -->
     <string name="faq">Frequently asked questions (FAQ) </string>
-    <string name="faq_summary">Click for Turbo Charger Toast Faq</string>
     <string name="faq_charger">Supported Chargers?</string>
     <string name="faq_charger_summary">Any Qualcomm QuickCharge 2.0* charger re branded by Motorola as \u0022Turbo Charger\u0022\n*Probably supported Qualcomm QuickCharge 3.0 untested</string>
     <string name="faq_devices">Supported Devices?</string>

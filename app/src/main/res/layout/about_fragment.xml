@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="30sp"
-            android:textColor="@color/text_white"
+            android:textColor="@color/white"
             android:layout_gravity="center|top"
             android:gravity="center"/>
         <TextView
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:textColor="@color/text_white"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:gravity="center"/>
         <TextView
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:textColor="@color/text_white"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:gravity="center"/>
         <TextView
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:textColor="@color/text_white"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:gravity="center"/>
         <ImageView
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:textColor="@color/text_white"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:gravity="center"/>
         <TextView
@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:textColor="@color/text_white"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:gravity="center"/>
         <ImageView
@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:textColor="@color/text_white"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:gravity="center"/>
         <ImageView
@@ -121,7 +121,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:textColor="@color/text_white"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:gravity="center"/>
         <TextView
@@ -130,7 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:textColor="@color/text_white"
+            android:textColor="@color/white"
             android:layout_gravity="center"
             android:gravity="center"/>
         <TextView
