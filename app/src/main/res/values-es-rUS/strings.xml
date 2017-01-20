@@ -12,7 +12,6 @@
     <string name="test_a_toast">Tipo de carga actual es:\n\n</string>
     <!-- faq -->
     <string name="faq">Preguntas frecuentes (FAQ)</string>
-    <string name="faq_summary">Clic para acceder a las (FAQ)</string>
     <string name="faq_charger">¿Cargadores soportados?</string>
     <string name="faq_charger_summary">Cualquier cargador Qualcomm QuickCharge 2.0 * o algún modelo manufacturado por Motorola \u0022Cargador Turbo\u0022\n* Probablemente soporta Qualcomm QuickCharge 3.0 no se ha probado</string>
     <string name="faq_devices">¿Dispositivos soportados?</string>

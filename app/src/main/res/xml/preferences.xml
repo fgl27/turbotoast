@@ -7,21 +7,11 @@
         android:summary="@string/battery_turbo_toast_summary"
         android:defaultValue="true" />
 
-    <Preference
-        android:key="faq"
-        android:title="@string/faq"
-        android:summary="@string/faq_summary"/>
-
     <CheckBoxPreference
         android:key="Charge"
         android:title="@string/charge_title"
         android:summary="@string/charge_title_summary"
         android:defaultValue="true" />
-
-    <Preference
-        android:key="teste"
-        android:title="@string/toast_test"
-        android:summary="@string/toast_test_summary"/>
 
     <CheckBoxPreference
         android:key="Root"
@@ -30,7 +20,16 @@
 	android:defaultValue="false" />
 
     <Preference
+        android:key="teste"
+        android:title="@string/toast_test"
+        android:summary="@string/toast_test_summary"/>
+
+    <Preference
         android:title=""/>
+
+    <Preference
+        android:key="faq"
+        android:title="@string/faq"/>
 
     <Preference
         android:key="about"
