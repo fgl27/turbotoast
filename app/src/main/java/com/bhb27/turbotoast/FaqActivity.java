@@ -33,6 +33,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bhb27.turbotoast.Tools;
+import com.bhb27.turbotoast.Constants;
 
 public class FaqActivity extends Activity {
     // in order of appearance
@@ -46,18 +47,21 @@ public class FaqActivity extends Activity {
         setContentView(R.layout.faq_fragment);
         FaqContext = this;
 
-        LinearLayout layout = (LinearLayout) findViewById(R.id.faqLayout);
+        LinearLayout layout      = (LinearLayout) findViewById(R.id.faqLayout);
         AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
         animation.setFillAfter(true);
         animation.setDuration(500);
         layout.startAnimation(animation);
+
+        //Link String
+        final String xda_link = Constants.xda_link;
 
         xda = (TextView) findViewById(R.id.xda);
         xda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(xda_link)));
                 } catch (ActivityNotFoundException ex) {
                     Tools.DoAToast(getString(R.string.no_browser), FaqContext);
                 }
@@ -69,7 +73,7 @@ public class FaqActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(xda_link)));
                 } catch (ActivityNotFoundException ex) {
                     Tools.DoAToast(getString(R.string.no_browser), FaqContext);
                 }
