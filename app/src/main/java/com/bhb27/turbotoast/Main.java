@@ -65,6 +65,7 @@ public class Main extends Activity {
                         Tools.DoAToast(getString(R.string.no_root_access), getActivity());
                     }
                 }
+                app_is_open = false;
             }
             getPreferenceManager().findPreference("teste").setOnPreferenceClickListener(new OnPreferenceClickListener() {
                 @Override
