@@ -50,14 +50,17 @@ public class TurboToastReceiver extends BroadcastReceiver {
             DoTurboToast(RootEnable, context);
 
         // charge toast 150000 = 150 seconds
-        if (Intent.ACTION_POWER_DISCONNECTED.equals(action) && Charge && (time > 150000))
+        if (Intent.ACTION_POWER_DISCONNECTED.equals(action) && Charge && (time > 150000) && (Tools.getChargeCapacity(RootEnable) != null))
             Tools.DoAToast((context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity(RootEnable) + "%"), context);
     }
 
     public void DoTurboToast(boolean root, Context context) {
         // in average the toast display in 2s add a litle more time just to make shore
         for (int i = 0; i < 50; i++) {
-            if (Tools.getChargingType(root).equals("Turbo")) {
+            String chargetype = Tools.getChargingType(root);
+            if (chargetype == null)
+               chargetype = "";
+            if (chargetype.equals("Turbo")) {
                 Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);
                 break;
             } else {
