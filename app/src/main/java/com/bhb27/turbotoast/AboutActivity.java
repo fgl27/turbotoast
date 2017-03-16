@@ -34,9 +34,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.File;
+
 import com.bhb27.turbotoast.Tools;
 import com.bhb27.turbotoast.BuildConfig;
 import com.bhb27.turbotoast.Constants;
+import com.bhb27.turbotoast.root.RootUtils;
 
 public class AboutActivity extends Activity {
     // in order of appearance
@@ -51,6 +54,10 @@ public class AboutActivity extends Activity {
         AboutContext = this;
         final String SUBJECT = getString(R.string.app_name) + " " +
             BuildConfig.VERSION_NAME + " (" + Build.MODEL + " " + Build.VERSION.RELEASE + ")";
+
+        final String BODY = "\n\n\nPower folders listing:\n" +
+            (Tools.getBoolean("Root", true, AboutContext) ?
+                RootUtils.runCommand("ls " + Constants.BATTERY_PARAMETERS) : listfiles(Constants.BATTERY_PARAMETERS));
 
         LinearLayout layout      = (LinearLayout) findViewById(R.id.aboutLayout);
         AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
@@ -78,7 +85,7 @@ public class AboutActivity extends Activity {
             public void onClick(View v) {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(email_link))
-                        .putExtra(Intent.EXTRA_SUBJECT, SUBJECT));
+                        .putExtra(Intent.EXTRA_SUBJECT, SUBJECT).putExtra(Intent.EXTRA_TEXT, BODY));
                 } catch (ActivityNotFoundException ex) {
                     Tools.DoAToast(getString(R.string.no_email_client), AboutContext);
                 }
@@ -90,7 +97,7 @@ public class AboutActivity extends Activity {
             public void onClick(View v) {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(email_link))
-                        .putExtra(Intent.EXTRA_SUBJECT, SUBJECT));
+                        .putExtra(Intent.EXTRA_SUBJECT, SUBJECT).putExtra(Intent.EXTRA_TEXT, BODY));
                 } catch (ActivityNotFoundException ex) {
                     Tools.DoAToast(getString(R.string.no_email_client), AboutContext);
                 }
@@ -140,7 +147,7 @@ public class AboutActivity extends Activity {
             public void onClick(View v) {
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(email_link))
-                        .putExtra(Intent.EXTRA_SUBJECT, SUBJECT));
+                        .putExtra(Intent.EXTRA_SUBJECT, SUBJECT).putExtra(Intent.EXTRA_TEXT, BODY));
                 } catch (ActivityNotFoundException ex) {
                     Tools.DoAToast(getString(R.string.no_email_client), AboutContext);
                 }
@@ -168,5 +175,19 @@ public class AboutActivity extends Activity {
                 }
             }
         });
+    }
+
+    public static String listfiles(String directoryName) {
+        File directory = new File(directoryName);
+        String resultList = "No Root" + "\n";
+        File[] fList = directory.listFiles();
+        if (fList != null) {
+            for (File file: fList) {
+                if (file.isFile()) {
+                    resultList = resultList + file.getName() + "\n";
+                }
+            }
+        } else resultList = "Can\'t read Power status";
+        return resultList;
     }
 }
