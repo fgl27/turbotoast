@@ -3,11 +3,11 @@
     <!-- main -->
     <string name="app_name">TurboToast</string>
     <string name="battery_turbo_toast">Turbo Charger Toast</string>
-    <string name="battery_turbo_toast_summary">Display a toast message \u0022Turbo Charger Connected\u0022 on supported devices* when a supported  charger is connected and is recognized as a \u0022Turbo\u0022 charger*\n*In doubt check FAQ</string>
+    <string name="battery_turbo_toast_summary">Displays a toast message \u0022Turbo Charger Connected\u0022 on supported devices* when a supported charger is connected and is recognized as a \u0022Turbo\u0022 charger*\n*If in doubt check FAQ</string>
     <string name="chargerconnected_turbo_toast">   Turbo Charger Connected   </string>
     <string name="charge">Charge</string>
     <string name="charge_title">Final Charge Toast</string>
-    <string name="charge_title_summary">Display a toast message \u0022Charge %\u0022 with the current battery percentage value when the charger is unplugged</string>
+    <string name="charge_title_summary">Displays a toast message \u0022Charge %\u0022 with the current battery percentage value when the charger is unplugged</string>
     <string name="device_model">Device Model:</string>
     <string name="toast_test">Do a Toast Test</string>
     <string name="toast_test_summary">In case you don\'t see the \u0022Turbo toast\u0022, Click here to see a Toast with your current Charging type.\nIf it is not \u0022Turbo\u0022 will be no toast upon connection</string>
@@ -15,7 +15,7 @@
     <!-- faq -->
     <string name="faq">Frequently asked questions (FAQ) </string>
     <string name="faq_charger">Supported Chargers?</string>
-    <string name="faq_charger_summary">Any Qualcomm QuickCharge 2.0* charger re branded by Motorola as \u0022Turbo Charger\u0022\n*Probably supported Qualcomm QuickCharge 3.0 untested</string>
+    <string name="faq_charger_summary">Any Qualcomm QuickCharge 2.0* charger rebranded by Motorola as \u0022Turbo Charger\u0022\n*Probably supported Qualcomm QuickCharge 3.0 untested</string>
     <string name="faq_devices">Supported Devices?</string>
     <string name="faq_devices_summary">Any Device that have supported for the Supported chargers.\nDevice confirmed that works:\nMoto Maxx(a.k.a Moto Turbo, Droid Turbo)</string>
     <string name="faq_no_toast">I plug the Charger there is no Toast?</string>
