@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+n<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- main -->
     <string name="app_name">TurboToast</string>
@@ -24,14 +24,14 @@
     <string name="faq_do_a_toast_summary">The kernel is configured to display the below flags when a charger is connected:\n\u0022None\u0022 (no charger connected)\n\u0022null\u0022 (This case the app need ROOT access if you give it ROOT access is very unlikely but may be or selinux blocking the app if you can try to disable that or yours Kernel output the flag in a path that the app is not configured to read this case try the developer on XDA thread)\n\u0022Normal\u0022 (Normal charger or PC charging)\n\u0022Weak\u0022 (damaged charger and or cable)\n\u0022Turbo\u0022 (Qualcomm QuickCharge 2.0 charger or Motorola \u0022Turbo\u0022 Charger)\n If when click on \u0022Do a Toast Test\u0022 you get a different output print the screen and post on the XDA thread click on XDA thread below</string>
     <!-- root -->
     <string name="root">Root Permission</string>
-    <string name="root_summary">Enable to give the app Root permission, in some devices may be need Root permission to read kernel Status for Charger type</string>
+    <string name="root_summary">Enable to give the app Root permission.  Some devices may need Root permission to read kernel Status for Charger type</string>
     <string name="root_disable">Root disable, the app may not be able to Toast correct without Root access</string>
     <string name="no_root_access">TurboToast!!!\nRoot enable in the app, but the app has no Root access\n\nPlease check Root or Disable Root permission check.</string>
     <string name="root_guaranteed">TurboToast!\nRoot access guaranteed.</string>
     <!-- about -->
     <string name="about">About TurboToast</string>
     <string name="dev_info">Developer information:</string>
-    <string name="git_summary">This is a open source app check it on my github\ngithub.com/bhb27/turbotoast</string>
+    <string name="git_summary">This is an open source app. Check it out on my github\ngithub.com/bhb27/turbotoast</string>
     <string name="version">Version</string>
     <!--     <string name="version_summary">This version can run without Root access, but can only work like this on BHB27 Kernel or CM Kernel Mod by BHB27</string> -->
     <string name="xda_summary">XDA support forum site</string>
