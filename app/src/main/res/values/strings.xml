@@ -6,11 +6,11 @@
     <string name="battery_turbo_toast_summary">Displays a toast message \u0022Turbo Charger Connected\u0022 on supported devices* when a supported charger is connected and is recognized as a \u0022Turbo\u0022 charger*\n*If in doubt check the FAQs</string>
     <string name="chargerconnected_turbo_toast">   Turbo Charger Connected   </string>
     <string name="charge">Charge</string>
-    <string name="charge_title">Final Charge Toast</string>
+    <string name="charge_title">Charger Disconnect Toast</string>
     <string name="charge_title_summary">Displays a toast message \u0022Charge %\u0022 with the current battery percentage value when the charger is unplugged</string>
     <string name="device_model">Device Model:</string>
-    <string name="toast_test">Do a Toast Test</string>
-    <string name="toast_test_summary">In case you don\'t see the \u0022Turbo toast\u0022, Click here to see a Toast with your current Charging type.\nIf it is not \u0022Turbo\u0022 will be no toast upon connection</string>
+    <string name="toast_test">Test Toast</string>
+    <string name="toast_test_summary">In case you don\'t see the \u0022Turbo toast\u0022, Click here to see a Toast with your current Charging type.\nIf it is not \u0022Turbo\u0022 there will be no toast upon connection</string>
     <string name="test_a_toast">Current Charging type is:\n\n</string>
     <!-- faq -->
     <string name="faq">Frequently Asked Questions (FAQ) </string>
@@ -20,7 +20,7 @@
     <string name="faq_devices_summary">Any device that is supported for the supported chargers.\nDevices that have been confirmed to work:\nMoto Maxx(a.k.a Moto Turbo, Droid Turbo)</string>
     <string name="faq_no_toast">I plugged in the charger but there is no toast?</string>
     <string name="faq_no_toast_summary">If you are using a supported device/charger and there is no toast check:\nUSB cables can make a difference, use original (or high quality USB cables)\nCharger may be damage try a different one\nUse the \u0022Do a Toast Test\u0022 Check the output if that is not displaying \u0022Turbo\u0022 at the end when you click, there will be no automatic "Turbo" toast when the charger is connected</string>
-    <string name="faq_do_a_toast">What are the possible output of \u0022Do a Toast Test\u0022?</string>
+    <string name="faq_do_a_toast">What are the possible outputs of \u0022Do a Toast Test\u0022?</string>
     <string name="faq_do_a_toast_summary">The kernel is configured to display the below flags when a charger is connected:\n\u0022None\u0022 (no charger connected)\n\u0022null\u0022 (This case the app need ROOT access if you give it ROOT access is very unlikely but may be or selinux blocking the app if you can try to disable that or yours Kernel output the flag in a path that the app is not configured to read this case try the developer on XDA thread)\n\u0022Normal\u0022 (Normal charger or PC charging)\n\u0022Weak\u0022 (damaged charger and or cable)\n\u0022Turbo\u0022 (Qualcomm QuickCharge 2.0 charger or Motorola \u0022Turbo\u0022 Charger)\n If when click on \u0022Do a Toast Test\u0022 you get a different output print the screen and post on the XDA thread click on XDA thread below</string>
     <!-- root -->
     <string name="root">Root Permission</string>
