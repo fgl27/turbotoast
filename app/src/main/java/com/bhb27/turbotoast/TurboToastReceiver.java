@@ -34,12 +34,12 @@ public class TurboToastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         String action = intent.getAction();
-        boolean RootEnable = Tools.getBoolean("Root", true, context);
-        boolean TurboToast = Tools.getBoolean("TurboToast", true, context);
-        boolean Charge = Tools.getBoolean("Charge", true, context);
-        boolean Run = Tools.getBoolean("Run", true, context);
+        boolean RootEnable = Tools.getBoolean("Root", false, context);
+        boolean TurboToast = Tools.getBoolean("TurboToast", false, context);
+        boolean Charge = Tools.getBoolean("Charge", false, context);
+        boolean Run = Tools.getBoolean("Run", false, context);
 
-        if ((!TurboToast && !Charge) || Run) return;
+        if ((!TurboToast && !Charge) || !Run) return;
         else if (RootEnable && !RootUtils.rootAccess()) {
             Tools.DoAToast((context.getResources().getString(R.string.no_root_access)), context);
             RootUtils.closeSU();
