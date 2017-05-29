@@ -17,4 +17,7 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
     </style>
+    <style name="SplashTheme" parent="@android:style/Theme.Holo.NoActionBar">
+        <item name="android:windowBackground">@drawable/start</item>
+    </style>
 </resources>

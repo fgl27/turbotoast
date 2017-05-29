@@ -18,4 +18,7 @@
     <style name="CheckBoxAppTheme" parent="android:Widget.CompoundButton.CheckBox">
         <item name="android:button">@drawable/apptheme_btn_check_material</item>
     </style>
+    <style name="SplashTheme" parent="@android:style/Theme.Holo.NoActionBar">
+        <item name="android:windowBackground">@drawable/start</item>
+    </style>
 </resources>
