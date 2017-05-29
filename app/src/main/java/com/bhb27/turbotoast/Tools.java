@@ -18,7 +18,6 @@
  * along with Kernel Adiutor.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
 package com.bhb27.turbotoast;
 
 import android.content.Context;

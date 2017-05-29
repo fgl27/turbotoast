@@ -62,7 +62,7 @@ public class TurboToastReceiver extends BroadcastReceiver {
         for (int i = 0; i < 50; i++) {
             String chargetype = Tools.getChargingType(root);
             if (chargetype == null)
-               chargetype = "";
+                chargetype = "";
             if (chargetype.equals("Turbo")) {
                 Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);
                 break;

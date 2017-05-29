@@ -17,7 +17,6 @@
  * along with Kernel Adiutor.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
 package com.bhb27.turbotoast.root;
 
 import android.util.Log;
@@ -59,7 +58,7 @@ public class RootUtils {
     }
 
     private static boolean existBinary(String binary) {
-        for (String path : System.getenv("PATH").split(":")) {
+        for (String path: System.getenv("PATH").split(":")) {
             if (!path.endsWith("/")) path += "/";
             if (new File(path + binary).exists() || Tools.existFile(path + binary, true))
                 return true;
@@ -73,9 +72,9 @@ public class RootUtils {
 
     public static void mount(boolean writeable, String mountpoint) {
         runCommand(writeable ? "mount -o remount,rw " + mountpoint + " " + mountpoint :
-                "mount -o remount,ro " + mountpoint + " " + mountpoint);
+            "mount -o remount,ro " + mountpoint + " " + mountpoint);
         runCommand(writeable ? "mount -o remount,rw " + mountpoint :
-                "mount -o remount,ro " + mountpoint);
+            "mount -o remount,ro " + mountpoint);
     }
 
     public static void closeSU() {

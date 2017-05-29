@@ -47,7 +47,7 @@ public class FaqActivity extends Activity {
         setContentView(R.layout.faq_fragment);
         FaqContext = this;
 
-        LinearLayout layout      = (LinearLayout) findViewById(R.id.faqLayout);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.faqLayout);
         AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
         animation.setFillAfter(true);
         animation.setDuration(500);

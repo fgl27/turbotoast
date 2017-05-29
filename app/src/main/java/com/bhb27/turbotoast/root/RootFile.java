@@ -17,7 +17,6 @@
  * along with Kernel Adiutor.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
 package com.bhb27.turbotoast.root;
 
 import android.util.Log;
@@ -58,31 +57,32 @@ public class RootFile {
     public void write(String text, boolean append) {
         String[] textarray = text.split("\\r?\\n");
         RootUtils.runCommand(append ? "echo '" + textarray[0] + "' >> " + file : "echo '" + textarray[0] + "' > " + file);
-        if (textarray.length > 1) for (int i = 1; i < textarray.length; i++)
-            RootUtils.runCommand("echo '" + textarray[i] + "' >> " + file);
+        if (textarray.length > 1)
+            for (int i = 1; i < textarray.length; i++)
+                RootUtils.runCommand("echo '" + textarray[i] + "' >> " + file);
     }
 
     public void delete() {
         RootUtils.runCommand("rm -r '" + file + "'");
     }
 
-    public List<String> list() {
-        List<String> list = new ArrayList<>();
+    public List < String > list() {
+        List < String > list = new ArrayList < > ();
         String files = RootUtils.runCommand("ls '" + file + "'");
         if (files != null)
             // Make sure the file exists
-            for (String file : files.split("\\r?\\n"))
+            for (String file: files.split("\\r?\\n"))
                 if (file != null && !file.isEmpty() && Tools.existFile(this.file + "/" + file, true))
                     list.add(file);
         return list;
     }
 
-    public List<RootFile> listFiles() {
-        List<RootFile> list = new ArrayList<>();
+    public List < RootFile > listFiles() {
+        List < RootFile > list = new ArrayList < > ();
         String files = RootUtils.runCommand("ls '" + file + "'");
         if (files != null)
             // Make sure the file exists
-            for (String file : files.split("\\r?\\n"))
+            for (String file: files.split("\\r?\\n"))
                 if (file != null && !file.isEmpty() && Tools.existFile(this.file + "/" + file, true))
                     list.add(new RootFile(this.file + "/" + file));
         return list;

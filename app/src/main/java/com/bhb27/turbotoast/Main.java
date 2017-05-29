@@ -54,20 +54,20 @@ public class Main extends Activity {
             addPreferencesFromResource(R.xml.preferences);
             Tools.saveBoolean("Run", true, getActivity());
 
-           // check on init if Root is enable if yes try to start Root
-           // use app_is_open bool to prevent the app from toast every time the display rotate 
-           if (app_is_open) {
-               if (Tools.getBoolean("Root", true, getActivity())) {
-                   if (RootUtils.rootAccess()) {
-                       Tools.DoAToast(getString(R.string.root_guaranteed), getActivity());
-                   } else {
-                       Tools.DoAToast(getString(R.string.no_root_access), getActivity());
-                   }
-               } else {
-                   Tools.DoAToast(getString(R.string.root_disable), getActivity());
-               }
-               app_is_open = false;
-           }
+            // check on init if Root is enable if yes try to start Root
+            // use app_is_open bool to prevent the app from toast every time the display rotate 
+            if (app_is_open) {
+                if (Tools.getBoolean("Root", true, getActivity())) {
+                    if (RootUtils.rootAccess()) {
+                        Tools.DoAToast(getString(R.string.root_guaranteed), getActivity());
+                    } else {
+                        Tools.DoAToast(getString(R.string.no_root_access), getActivity());
+                    }
+                } else {
+                    Tools.DoAToast(getString(R.string.root_disable), getActivity());
+                }
+                app_is_open = false;
+            }
             getPreferenceManager().findPreference("teste").setOnPreferenceClickListener(new OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {

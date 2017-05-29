@@ -59,7 +59,7 @@ public class AboutActivity extends Activity {
             (Tools.getBoolean("Root", true, AboutContext) ?
                 RootUtils.runCommand("ls " + Constants.BATTERY_PARAMETERS) : listfiles(Constants.BATTERY_PARAMETERS));
 
-        LinearLayout layout      = (LinearLayout) findViewById(R.id.aboutLayout);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.aboutLayout);
         AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
         animation.setFillAfter(true);
         animation.setDuration(500);
@@ -67,18 +67,18 @@ public class AboutActivity extends Activity {
 
         //textview
         version_number = (TextView) findViewById(R.id.version_number);
-        email          = (TextView) findViewById(R.id.email);
-        email_summary  = (TextView) findViewById(R.id.email_summary);
-        xda            = (TextView) findViewById(R.id.xda);
-        git            = (TextView) findViewById(R.id.git);
-        git_summary    = (TextView) findViewById(R.id.git_summary);
+        email = (TextView) findViewById(R.id.email);
+        email_summary = (TextView) findViewById(R.id.email_summary);
+        xda = (TextView) findViewById(R.id.xda);
+        git = (TextView) findViewById(R.id.git);
+        git_summary = (TextView) findViewById(R.id.git_summary);
 
         version_number.setText(BuildConfig.VERSION_NAME);
 
         //Link Strings
         final String email_link = Constants.email_link;
-        final String xda_link   = Constants.xda_link;
-        final String git_link   = Constants.git_link;
+        final String xda_link = Constants.xda_link;
+        final String git_link = Constants.git_link;
 
         email.setOnClickListener(new View.OnClickListener() {
             @Override
