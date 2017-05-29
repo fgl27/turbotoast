@@ -52,6 +52,7 @@ public class Main extends Activity {
             super.onCreate(savedInstanceState);
             getPreferenceManager().setSharedPreferencesName(Constants.PREF_NAME);
             addPreferencesFromResource(R.xml.preferences);
+            Tools.saveBoolean("Run", true, getActivity());
 
            // check on init if Root is enable if yes try to start Root
            // use app_is_open bool to prevent the app from toast every time the display rotate 
@@ -96,5 +97,12 @@ public class Main extends Activity {
                 }
             });
         }
+
+        @Override
+        public void onPause() {
+            super.onPause();
+            RootUtils.closeSU();
+        }
     }
+
 }

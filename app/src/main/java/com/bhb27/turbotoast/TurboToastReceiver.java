@@ -37,9 +37,12 @@ public class TurboToastReceiver extends BroadcastReceiver {
         boolean RootEnable = Tools.getBoolean("Root", true, context);
         boolean TurboToast = Tools.getBoolean("TurboToast", true, context);
         boolean Charge = Tools.getBoolean("Charge", true, context);
-        if (!TurboToast && !Charge) return;
+        boolean Run = Tools.getBoolean("Run", true, context);
+
+        if ((!TurboToast && !Charge) || Run) return;
         else if (RootEnable && !RootUtils.rootAccess()) {
             Tools.DoAToast((context.getResources().getString(R.string.no_root_access)), context);
+            RootUtils.closeSU();
             return;
         }
         // Android is sending undesirable DISCONNECTED at boot with make a toast even if there is no action on the POWER
@@ -71,5 +74,6 @@ public class TurboToastReceiver extends BroadcastReceiver {
                 }
             }
         }
+        RootUtils.closeSU();
     }
 }
