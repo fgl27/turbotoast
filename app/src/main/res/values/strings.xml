@@ -15,13 +15,13 @@
     <!-- faq -->
     <string name="faq">Frequently Asked Questions (FAQ) </string>
     <string name="faq_charger">Supported Chargers?</string>
-    <string name="faq_charger_summary">Any Qualcomm QuickCharge 2.0* charger rebranded by Motorola as a \u0022Turbo Charger\u0022\n*Probably supports Qualcomm QuickCharge 3.0 but is untested</string>
+    <string name="faq_charger_summary">Any Qualcomm QuickCharge 2.0* charger re-branded by Motorola as a \u0022Turbo Charger\u0022\n*Probably supports Qualcomm QuickCharge 3.0 but is untested</string>
     <string name="faq_devices">Supported Devices?</string>
-    <string name="faq_devices_summary">Any device that is supported for the supported chargers.\nDevices that have been confirmed to work:\nMoto Maxx(a.k.a Moto Turbo, Droid Turbo)</string>
+    <string name="faq_devices_summary">Any device that has Turbo charger or Qualcomm QuickCharge 2.0 support.</string>
     <string name="faq_no_toast">I plugged in the charger, but there is no toast?</string>
     <string name="faq_no_toast_summary">If you are using a supported device/charger and there is no toast check:\nUSB cables can make a difference, use original (or high quality USB cables)\nCharger may be damage try a different one\nUse the \u0022Do a Toast Test\u0022 Check the output if that is not displaying \u0022Turbo\u0022 at the end when you click, there will be no automatic "Turbo" toast when the charger is connected</string>
     <string name="faq_do_a_toast">What are the possible outputs of the \u0022Test Toast\u0022?</string>
-    <string name="faq_do_a_toast_summary">The kernel is configured to display the below flags when a charger is connected:\n\u0022None\u0022 (no charger connected)\n\u0022null\u0022 (This case the app need ROOT access if you give it ROOT access is very unlikely but may be or selinux blocking the app if you can try to disable that or yours Kernel output the flag in a path that the app is not configured to read this case try the developer on XDA thread)\n\u0022Normal\u0022 (Normal charger or PC charging)\n\u0022Weak\u0022 (damaged charger and or cable)\n\u0022Turbo\u0022 (Qualcomm QuickCharge 2.0 charger or Motorola \u0022Turbo\u0022 Charger)\n If when click on \u0022Do a Toast Test\u0022 you get a different output print the screen and post on the XDA thread click on XDA thread below</string>
+    <string name="faq_do_a_toast_summary">The kernel is configured to display the below flags when a charger is connected:\n\u0022None\u0022 no charger connected\n\u0022null\u0022 The app need ROOT access if you give it ROOT access is probable that yours device doesn\'t have support, but if you are shore it does try to inform on the XDA Support forum\n\u0022Normal\u0022 Normal charger or PC charging\n\u0022Weak\u0022 damaged charger and or cable\n\u0022Turbo\u0022 Qualcomm QuickCharge 2.0 charger or Motorola \u0022Turbo\u0022 Charger\n If when click on \u0022Do a Toast Test\u0022 you get a different output, print the screen and post on the XDA support forum</string>
     <!-- root -->
     <string name="root">Root Permission</string>
     <string name="root_summary">Enable to give the app Root permission.  Some devices may need Root permission to read kernel Status for Charger type</string>

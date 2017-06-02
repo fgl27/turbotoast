@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="battery_turbo_toast">Mensagem Toast Carregador Turbo</string>
-    <string name="battery_turbo_toast_summary">Exibe uma mensagem de Toast \u0022Carregador Turbo Conectado\u0022 em dispositivos suportados* quando um carregador suportado é conectado e é reconhecido como um carregador \u0022Turbo*\u0022\n*Em caso de dúvida verificaque o FAQ</string>
+    <string name="battery_turbo_toast_summary">Exibe uma mensagem de Toast \u0022Carregador Turbo Conectado\u0022 em dispositivos suportados* quando um carregador suportado é conectado e é reconhecido como um carregador \u0022Turbo*\u0022\n*Em caso de dúvida verifique no FAQ</string>
     <string name="chargerconnected_turbo_toast">   Carregador Turbo Conectado   </string>
     <string name="charge">Carregou</string>
     <string name="charge_title">Toast da Carga Final</string>
-    <string name="charge_title_summary">Exibe uma mensagem Toast \u0022Carregou %\u0022 com o valor atual da carga da bateria quando o carregador é desconectado</string>
+    <string name="charge_title_summary">Exibe uma mensagem Toast \u0022Carregou %\u0022 com o valor atual da carga da bateria quando se desconecta o carregador</string>
     <string name="device_model">Modelo do aparelho:</string>
     <string name="toast_test">Faça uma Toast de Teste</string>
     <string name="toast_test_summary">No caso de você não ver a mensagem Toast\u0022Carregador Turbo \u0022, Clique aqui para ver uma Toast teste.\nSe não esta descrito \u0022 Turbo \u0022 não tera Toast quando conectar o carregador</string>
@@ -15,24 +15,24 @@
     <string name="faq_charger">Carregadores suportados?</string>
     <string name="faq_charger_summary">Qualquer carregador Qualcomm QuickCharge 2.0* ou o modelo renomeado pela Motorola como \u0022 Carregador Turbo\u0022\n*Provavelmente supporta Qualcomm QuickCharge 3.0 não testado ainda</string>
     <string name="faq_devices">Aparelhos suportados?</string>
-    <string name="faq_devices_summary">Qualquer aparelho que tenha suporte aos carregadore suportados.\nAparelhos testados e funcionais:\nMoto Maxx(também descrito como Moto Turbo, Droid Turbo)</string>
+    <string name="faq_devices_summary">Qualquer aparelho que tenha suporte aos carregadores turbo.</string>
     <string name="faq_no_toast">Carregador conectado mas não tem Toast?</string>
-    <string name="faq_no_toast_summary">Se estiver um carregador/aparelho suportado e não reseceber a mensagem confira:\nO cabo USB, use  o original (ou um de alta qualidade)\nO carregador pode estar danificado tente outro\nUse a \u0022Mensage Toast de Teste\u0022 verifique a resposta se esta não conter a palavra \u0022Turbo\u0022 no final, não tera mensagem automatica \u0022Turbo\u0022 quando plugar o carregador.</string>
-    <string name="faq_do_a_toast">Quais são as possíveis respostas da \u0022Mensage Toast de Teste\u0022?</string>
-    <string name="faq_do_a_toast_summary">O kernel esta configurado para mostras as seguintes palavras quando o carregador é plugado:\n\u0022None\u0022 (nenhum carregador conectado)\n\u0022null\u0022 (Neste caso o app precisa de acesso ROOT para ler os dados do Kernel se deu acesso de root ao app é improvavel que informe \u0022null\u0022 mas neste caso verifique, ou o Selinux esta bloqueando o aplicativo é possível desligar o Selinux pequise como, ou o local onde o Kernel guarda a informação é diferente no seu aparelho neste caso contate o desenvolvedor pelo link XDA mais abaixo\n\u0022Normal\u0022 (Carregador comum ou conectado a um PC)\n\u0022Weak\u0022 (Carregador ou cabo com defeito)\n\u0022Turbo\u0022 (Carregador Qualcomm QuickCharge 2.0 or carregador Motorola \u0022Turbo\u0022)\nSe quando clicar na \u0022Mensage Toast de Teste\ e tiver uma resposta diferente destas informe no XDA link abaixo.</string>
+    <string name="faq_no_toast_summary">Se estiver um carregador/aparelho suportado e não receber a mensagem confira:\nO cabo USB, use  o original (ou um de alta qualidade)\nO carregador pode estar danificado tente outro\nUse a \u0022Mensage Toast de Teste\u0022 verifique a resposta se esta não conter a palavra \u0022Turbo\u0022 no final, não tera mensagem automática \u0022Turbo\u0022 quando plugar o carregador.</string>
+    <string name="faq_do_a_toast">Quais são as possíveis respostas da \u0022Mensagem Toast de Teste\u0022?</string>
+    <string name="faq_do_a_toast_summary">O kernel esta configurado para mostras as seguintes palavras quando o carregador é plugado:\n\u0022None\u0022 nenhum carregador conectado\n\u0022null\u0022 O app precisa de acesso ROOT caso tenha dado ROOT acesso o aparelho talvez não seja suportado, caso tenha certeza que o aparelho tem suporte informe no fórum de suporte\n\u0022Normal\u0022 Carregador comum ou conectado a um PC\n\u0022Weak\u0022 Carregador ou cabo com defeito\n\u0022Turbo\u0022 Carregador Qualcomm QuickCharge 2.0 or carregador Motorola \u0022Turbo\u0022\nSe quando clicar na \u0022Mensagem Toast de Teste\ e tiver uma resposta diferente destas informe no fórum de suporte</string>
     <!-- root -->
     <string name="root">Permissão de acesso Root</string>
-    <string name="root_summary">Ative para dar ao app permissão de acesso Root permission, em alguns aparelhos é preciso receber o valore correto para as mensagens</string>
+    <string name="root_summary">Ative para dar ao app permissão de acesso Root, em alguns aparelhos é preciso para ler o valore correto para as mensagens</string>
     <string name="root_disable">Root desabilitado, O app pode não conseguir mostrar as corretas mensagens sem acesso ROOT</string>
-    <string name="no_root_access">TurboToast!!!\nPermisão de acesso Root ativa no app, mas o app não tem acesso Root\n\nFavor conferir o Root ou desabilite a opção no app</string>
+    <string name="no_root_access">TurboToast!!!\nPermissão de acesso Root ativa no app, mas o app não tem acesso Root\n\nFavor conferir o Root ou desabilite a opção no app</string>
     <string name="root_guaranteed">TurboToast!\nAcesso Root funcionado</string>
     <!-- about -->
     <string name="about">Sobre TurboToast</string>
     <string name="dev_info">Informações do Desenvolvedor:</string>
-    <string name="git_summary">Este app é open source confira no meu github\ngithub.com/bhb27/turbotoast</string>
+    <string name="git_summary">Este app é aberto (open source) confira no meu github\ngithub.com/bhb27/turbotoast</string>
     <string name="no_email_client">Não há nenhum cliente de email instalado no dispositivo.</string>
     <string name="no_browser">Não há nenhum navegador de web instalado no dispositivo.</string>
     <string name="version">Versão</string>
     <!-- <string name="version_summary">Esta versão funciona sem acesso root mas somente em uma ROM que usa BHB27 Kernel ou CM Kernel Mod by BHB27</string> -->
-    <string name="xda_summary">XDA forum de suporte</string>
+    <string name="xda_summary">XDA fórum de suporte</string>
 </resources>
