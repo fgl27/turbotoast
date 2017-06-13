@@ -8,8 +8,8 @@ android {
         applicationId "com.bhb27.turbotoast"
         minSdkVersion 13
         targetSdkVersion 25
-        versionCode 35
-        versionName "1.1.3"
+        versionCode 36
+        versionName "1.1.4"
     }
     buildTypes {
         release {
