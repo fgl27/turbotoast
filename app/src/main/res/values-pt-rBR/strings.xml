@@ -15,7 +15,7 @@
     <string name="faq_charger">Carregadores suportados?</string>
     <string name="faq_charger_summary">Qualquer carregador Qualcomm QuickCharge 2.0* ou o modelo renomeado pela Motorola como \u0022 Carregador Turbo\u0022\n*Provavelmente supporta Qualcomm QuickCharge 3.0 não testado ainda</string>
     <string name="faq_devices">Aparelhos suportados?</string>
-    <string name="faq_devices_summary">Qualquer aparelho que tenha suporte aos carregadores turbo.</string>
+    <string name="faq_devices_summary">Dispositivos com acesso de root que tenha suporte aos carregadores turbo.</string>
     <string name="faq_no_toast">Carregador conectado mas não tem Toast?</string>
     <string name="faq_no_toast_summary">Se estiver um carregador/aparelho suportado e não receber a mensagem confira:\nO cabo USB, use  o original (ou um de alta qualidade)\nO carregador pode estar danificado tente outro\nUse a \u0022Mensage Toast de Teste\u0022 verifique a resposta se esta não conter a palavra \u0022Turbo\u0022 no final, não tera mensagem automática \u0022Turbo\u0022 quando plugar o carregador.</string>
     <string name="faq_do_a_toast">Quais são as possíveis respostas da \u0022Mensagem Toast de Teste\u0022?</string>
