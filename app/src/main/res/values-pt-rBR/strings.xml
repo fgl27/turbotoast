@@ -13,13 +13,16 @@
     <!-- faq -->
     <string name="faq">Perguntas frequentes (FAQ) </string>
     <string name="faq_charger">Carregadores suportados?</string>
-    <string name="faq_charger_summary">Qualquer carregador Qualcomm QuickCharge 2.0* ou o modelo renomeado pela Motorola como \u0022 Carregador Turbo\u0022\n*Provavelmente supporta Qualcomm QuickCharge 3.0 não testado ainda</string>
+    <string name="faq_charger_summary">Qualquer carregador Qualcomm QuickCharge 2.0* ou o modelo renomeado pela Motorola como \u0022 Carregador Turbo\u0022\n*Provavelmente suporta Qualcomm QuickCharge 3.0 e versões superiores</string>
     <string name="faq_devices">Aparelhos suportados?</string>
     <string name="faq_devices_summary">Dispositivos com acesso de root que tenha suporte aos carregadores turbo.</string>
     <string name="faq_no_toast">Carregador conectado mas não tem Toast?</string>
     <string name="faq_no_toast_summary">Se estiver um carregador/aparelho suportado e não receber a mensagem confira:\nO cabo USB, use  o original (ou um de alta qualidade)\nO carregador pode estar danificado tente outro\nUse a \u0022Mensage Toast de Teste\u0022 verifique a resposta se esta não conter a palavra \u0022Turbo\u0022 no final, não tera mensagem automática \u0022Turbo\u0022 quando plugar o carregador.</string>
     <string name="faq_do_a_toast">Quais são as possíveis respostas da \u0022Mensagem Toast de Teste\u0022?</string>
     <string name="faq_do_a_toast_summary">O kernel esta configurado para mostras as seguintes palavras quando o carregador é plugado:\n\u0022None\u0022 nenhum carregador conectado\n\u0022null\u0022 O app precisa de acesso ROOT caso tenha dado ROOT acesso o aparelho talvez não seja suportado, caso tenha certeza que o aparelho tem suporte informe no fórum de suporte\n\u0022Normal\u0022 Carregador comum ou conectado a um PC\n\u0022Weak\u0022 Carregador ou cabo com defeito\n\u0022Turbo\u0022 Carregador Qualcomm QuickCharge 2.0 or carregador Motorola \u0022Turbo\u0022\nSe quando clicar na \u0022Mensagem Toast de Teste\ e tiver uma resposta diferente destas informe no fórum de suporte</string>
+    <string name="faq_how_it_works">Como este aplicativo funciona?</string>
+    <string name="how_it_works_summary">Conecte o carregador para ver uma mensagem caso o sistema reconheça o carregador como um carregador \u0022Turbo\u0022, é necessário ter as opções \u0022Mensagem Toast Carregador Turbo\u0022 e \u0022Permissão de acesso Root\u0022 habilitado, a opção \u0022Toast da Carga Final\u0022 é opcional que mostra a porcentagem de carga ao remover o carregador não é necessário habilitar esta caso apenas queira ver a \u0022Mensagem Toast Carregador Turbo\u0022</string>
+    <string name="faq_warning">Este aplicativo não melhora de nenhuma maneira como seu aparelho carrega</string>
     <!-- root -->
     <string name="root">Permissão de acesso Root</string>
     <string name="root_summary">Ative para dar ao app permissão de acesso Root, em alguns aparelhos é preciso para ler o valore correto para as mensagens</string>
