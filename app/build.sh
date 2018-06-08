@@ -38,8 +38,8 @@ BAPP=1;
 SIGN=1;
 TOOLVERSION=$(grep buildTools "$FOLDER"/versions.gradle | head -n1 | cut -d\' -f2);
 ZIPALIGN_FOLDER=$SDK_FOLDER/build-tools/$TOOLVERSION/zipalign;
-KEY_FOLDER=/home/bhb27/android/temp/sign/fgl_pem.key;
-KEY_PASS=$(</home/bhb27/android/temp/sign/pass);
+KEY_FOLDER="$HOME"/android/temp/sign/fgl_pem.key;
+KEY_PASS=$(<"$HOME"/android/temp/sign/pass);
 
 # out app folder and out app name
 VERSION=$(grep publishVersion "$FOLDER"/versions.gradle | head -n1 | cut -d\' -f2 | sed 's/\./_/' | sed 's/\./_/');
