@@ -29,7 +29,7 @@
     <string name="root">Root Permission</string>
     <string name="root_summary">Enable to give the app Root permission.  Some devices may need Root permission to read kernel status for charger type</string>
     <string name="root_disable">Root disable, the app may not be able to Toast correct without Root access</string>
-    <string name="no_root_access">TurboToast!!!\nRoot enable in the app, but the app has no Root access\n\nPlease check Root or Disable Root permission check.</string>
+    <string name="no_root_access">TurboToast!!!\nRoot is enabled in the app, but the app has no Root access\n\nPlease check Root or Disable Root permission check.</string>
     <string name="root_guaranteed">TurboToast!\nRoot access guaranteed.</string>
     <!-- about -->
     <string name="about">About TurboToast</string>
