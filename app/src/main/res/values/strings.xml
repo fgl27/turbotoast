@@ -7,7 +7,7 @@
     <string name="chargerconnected_turbo_toast">   Turbo Charger Connected   </string>
     <string name="charge">Charge</string>
     <string name="charge_title">Charger Disconnect Toast</string>
-    <string name="charge_title_summary">Displays a toast message \u0022Charge %\u0022 with the current battery percentage value when the charger is unplugged</string>
+    <string name="charge_title_summary">Displays a toast message \u0022Charge %\u0022 with the current battery percentage when the charger is unplugged</string>
     <string name="device_model">Device Model:</string>
     <string name="toast_test">Test Toast</string>
     <string name="toast_test_summary">In case you don\'t see the \u0022Turbo toast\u0022, Click here to see a Toast with your current Charging type.\nIf it is not \u0022Turbo\u0022 there will be no toast upon connection</string>
@@ -15,21 +15,21 @@
     <!-- faq -->
     <string name="faq">Frequently Asked Questions (FAQ) </string>
     <string name="faq_charger">Supported Chargers?</string>
-    <string name="faq_charger_summary">Any Qualcomm QuickCharge 2.0* charger re-branded by Motorola as a \u0022Turbo Charger\u0022\n* Probably supports Qualcomm QuickCharge 3.0 and up charges</string>
+    <string name="faq_charger_summary">Any Qualcomm QuickCharge 2.0* charger re-branded by Motorola as a \u0022Turbo Charger\u0022\n* Qualcomm QuickCharge 3.0 and up chargers are probably supported</string>
     <string name="faq_devices">Supported Devices?</string>
-    <string name="faq_devices_summary">Rooted devices that has Turbo charger or Qualcomm QuickCharge 2.0 support.</string>
+    <string name="faq_devices_summary">Rooted devices that have Turbo charger or Qualcomm QuickCharge 2.0 support</string>
     <string name="faq_no_toast">I plugged in the charger, but there is no toast?</string>
-    <string name="faq_no_toast_summary">If you are using a supported device/charger and there is no toast check:\nUSB cables can make a difference, use original (or high quality USB cables)\nCharger may be damage try a different one\nUse the \u0022Do a Toast Test\u0022 Check the output if that is not displaying \u0022Turbo\u0022 at the end when you click, there will be no automatic "Turbo" toast when the charger is connected</string>
+    <string name="faq_no_toast_summary">If you are using a supported device/charger and there is no toast check:\nUSB cables can make a difference, use original (or high quality USB cables)\nCharger may be damage try a different one\nUse the \u0022Do a Toast Test\u0022 Check the output, if that is not displaying \u0022Turbo\u0022 at the end when you click, there will be no automatic "Turbo" toast when the charger is connected</string>
     <string name="faq_do_a_toast">What are the possible outputs of the \u0022Test Toast\u0022?</string>
-    <string name="faq_do_a_toast_summary">The kernel is configured to display the below flags when a charger is connected:\n\u0022None\u0022 no charger connected\n\u0022null\u0022 The app need ROOT access if you give it ROOT access is probable that yours device doesn\'t have support, but if you are shore it does try to inform on the XDA Support forum\n\u0022Normal\u0022 Normal charger or PC charging\n\u0022Weak\u0022 damaged charger and or cable\n\u0022Turbo\u0022 Qualcomm QuickCharge 2.0 charger or Motorola \u0022Turbo\u0022 Charger\n If when click on \u0022Do a Toast Test\u0022 you get a different output, print the screen and post on the XDA support forum</string>
-    <string name="faq_how_it_works">How the app works?</string>
-    <string name="how_it_works_summary">Plug the charger to see a Toast message if the charger is recognized by the system as a \u0022Turbo\u0022 charger, is necessary to have the options \u0022Turbo Charger Toast\u0022 and \u0022Root permission\u0022 enabled, \u0022Charger Disconnect Toast\u0022 option is a extra option it show current battery percentage after the charger is disconnected this is not needed to be enable if you only want to see a \u0022Turbo Charger Toast\u0022</string>
-    <string name="faq_warning">This app doesn\'t improve in anyway how yours device charges it\'s battery</string>
+    <string name="faq_do_a_toast_summary">The kernel is configured to display the below flags when a charger is connected:\n\u0022None\u0022 no charger connected\n\u0022null\u0022 The app needs ROOT access, if you give it ROOT access it\'s probable that your device doesn\'t have support, but if you are sure it does, please post on the XDA Support forum\n\u0022Normal\u0022 Normal charger or PC charging\n\u0022Weak\u0022 damaged charger and or cable\n\u0022Turbo\u0022 Qualcomm QuickCharge 2.0 charger or Motorola \u0022Turbo\u0022 Charger\n If clicking on \u0022Do a Toast Test\u0022 gets different output, take a screenshot and post on the XDA support forum</string>
+    <string name="faq_how_it_works">How does the app work?</string>
+    <string name="how_it_works_summary">Plug in the charger to see a Toast message, if the charger is recognized by the system as a \u0022Turbo\u0022 charger, it\'s necessary to have the options \u0022Turbo Charger Toast\u0022 and \u0022Root permission\u0022 enabled, \u0022Charger Disconnect Toast\u0022 option is an extra option that shows current battery percentage after the charger is disconnected. This does not need to be enabled if you only want to see a \u0022Turbo Charger Toast\u0022</string>
+    <string name="faq_warning">This app doesn\'t improve, in any way, how your device charges its battery</string>
     <!-- root -->
     <string name="root">Root Permission</string>
-    <string name="root_summary">Enable to give the app Root permission.  Some devices may need Root permission to read kernel Status for Charger type</string>
+    <string name="root_summary">Enable to give the app Root permission.  Some devices may need Root permission to read kernel status for charger type</string>
     <string name="root_disable">Root disable, the app may not be able to Toast correct without Root access</string>
-    <string name="no_root_access">TurboToast!!!\nRoot enable in the app, but the app has no Root access\n\nPlease check Root or Disable Root permission check.</string>
+    <string name="no_root_access">TurboToast!!!\nRoot is enabled in the app, but the app has no Root access\n\nPlease check Root or Disable Root permission check.</string>
     <string name="root_guaranteed">TurboToast!\nRoot access guaranteed.</string>
     <!-- about -->
     <string name="about">About TurboToast</string>
@@ -37,7 +37,7 @@
     <string name="git_summary">This is an open source app. Check it out on my github\ngithub.com/bhb27/turbotoast</string>
     <string name="version">Version</string>
     <!--     <string name="version_summary">This version can run without Root access, but can only work like this on BHB27 Kernel or CM Kernel Mod by BHB27</string> -->
-    <string name="xda_summary">XDA support forum site</string>
+    <string name="xda_summary">XDA support forum s`e</string>
     <string name="email">Email</string>
     <string name="email_summary">fglfgl27@gmail.com</string>
     <string name="github">GitHub</string>
