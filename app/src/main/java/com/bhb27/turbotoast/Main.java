@@ -19,7 +19,11 @@
  */
 package com.bhb27.turbotoast;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -28,6 +32,7 @@ import android.content.SharedPreferences;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.util.Log;
 
 import com.bhb27.turbotoast.AboutActivity;
 import com.bhb27.turbotoast.Constants;
@@ -38,6 +43,7 @@ import com.bhb27.turbotoast.Tools;
 public class Main extends Activity {
 
     private static boolean app_is_open = true;
+    private static final String TAG = Main.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +59,7 @@ public class Main extends Activity {
             getPreferenceManager().setSharedPreferencesName(Constants.PREF_NAME);
             addPreferencesFromResource(R.xml.preferences);
             Tools.saveBoolean("Run", true, getActivity());
+            //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ScheduleobService(getActivity());
 
             // check on init if Root is enable if yes try to start Root
             // use app_is_open bool to prevent the app from toast every time the display rotate 
@@ -102,6 +109,21 @@ public class Main extends Activity {
         public void onPause() {
             super.onPause();
             RootUtils.closeSU();
+        }
+    }
+
+    @TargetApi(21)
+    private static void ScheduleobService(Context context) {
+        JobInfo jobInfo = new JobInfo.Builder(12, new ComponentName(context, TurboToastJobService.class))
+                .setRequiresCharging(true)
+                .build();
+
+        JobScheduler jobScheduler = (JobScheduler) context.getSystemService(JOB_SCHEDULER_SERVICE);
+        int resultCode = jobScheduler.schedule(jobInfo);
+        if (resultCode == JobScheduler.RESULT_SUCCESS) {
+            Log.d(TAG, "Job scheduled!");
+        } else {
+            Log.d(TAG, "Job not scheduled");
         }
     }
 
