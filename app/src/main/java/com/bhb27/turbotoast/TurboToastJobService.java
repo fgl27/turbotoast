@@ -28,6 +28,8 @@ import android.content.Intent;
 import android.os.SystemClock;
 import android.util.Log;
 
+import java.util.Locale;
+
 import com.bhb27.turbotoast.R;
 import com.bhb27.turbotoast.Tools;
 import com.bhb27.turbotoast.root.RootUtils;
@@ -61,20 +63,19 @@ public class TurboToastJobService extends JobService {
     public void DoTurboToast(JobParameters jobParameters, Context context) {
         boolean root = Tools.getBoolean("Root", false, this);
         // in average the toast display in 2s add a litle more time just to make shore
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
             // If the job has been cancelled, stop working; the job will be rescheduled.
             if (jobCancelled)
                 return;
 
             String chargetype = Tools.getChargingType(root);
-            if (chargetype == null)
-                chargetype = "";
-            if (chargetype.equals("Turbo")) {
+
+            if (chargetype != null && chargetype.toLowerCase(Locale.US).equals("turbo")) {
                 Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);
                 break;
             } else {
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(500);
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                 }

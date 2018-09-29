@@ -24,6 +24,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
 
+import java.util.Locale;
+
 import com.bhb27.turbotoast.R;
 import com.bhb27.turbotoast.Tools;
 import com.bhb27.turbotoast.root.RootUtils;
@@ -48,27 +50,25 @@ public class TurboToastReceiver extends BroadcastReceiver {
         // Android is sending undesirable DISCONNECTED at boot with make a toast even if there is no action on the POWER
         Long time = SystemClock.elapsedRealtime();
 
-        // turbotoast
         if (Intent.ACTION_POWER_CONNECTED.equals(action) && TurboToast)
             DoTurboToast(RootEnable, context);
-
-        // charge toast 150000 = 150 seconds
-        if (Intent.ACTION_POWER_DISCONNECTED.equals(action) && Charge && (time > 150000) && (Tools.getChargeCapacity(RootEnable) != null))
+        else if (Intent.ACTION_POWER_DISCONNECTED.equals(action) && Charge && (time > 150000) && (Tools.getChargeCapacity(RootEnable) != null))
             Tools.DoAToast((context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity(RootEnable) + "%"), context);
+
+        RootUtils.closeSU();
     }
 
     public void DoTurboToast(boolean root, Context context) {
         // in average the toast display in 2s add a litle more time just to make shore
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
             String chargetype = Tools.getChargingType(root);
-            if (chargetype == null)
-                chargetype = "";
-            if (chargetype.equals("Turbo")) {
+
+            if (chargetype != null && chargetype.toLowerCase(Locale.US).equals("turbo")) {
                 Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);
                 break;
             } else {
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(500);
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                 }
