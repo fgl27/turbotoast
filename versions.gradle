@@ -7,6 +7,6 @@ ext.versions = [
         publishVersion       : '1.1.7',
         publishVersionCode   : 39,
 
-        gradlePlugin         : '3.1.4',
+        gradlePlugin         : '3.2.0',
         benmanes             : '0.20.0',
 ]
