@@ -69,6 +69,7 @@ public class TurboToastJobService extends JobService {
                 return;
 
             String chargetype = Tools.getChargingType(root);
+            RootUtils.closeSU();
 
             if (chargetype != null && chargetype.toLowerCase(Locale.US).equals("turbo")) {
                 Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);

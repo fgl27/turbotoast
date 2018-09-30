@@ -52,17 +52,18 @@ public class TurboToastReceiver extends BroadcastReceiver {
 
         if (Intent.ACTION_POWER_CONNECTED.equals(action) && TurboToast)
             DoTurboToast(RootEnable, context);
-        else if (Intent.ACTION_POWER_DISCONNECTED.equals(action) && Charge && (time > 150000) && (Tools.getChargeCapacity(RootEnable) != null))
+        else if (Intent.ACTION_POWER_DISCONNECTED.equals(action) && Charge && (time > 150000) &&
+            (Tools.getChargeCapacity(RootEnable) != null)) {
             Tools.DoAToast((context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity(RootEnable) + "%"), context);
-
-        RootUtils.closeSU();
+            RootUtils.closeSU();
+        }
     }
 
     public void DoTurboToast(boolean root, Context context) {
         // in average the toast display in 2s add a litle more time just to make shore
         for (int i = 0; i < 10; i++) {
             String chargetype = Tools.getChargingType(root);
-
+            RootUtils.closeSU();
             if (chargetype != null && chargetype.toLowerCase(Locale.US).equals("turbo")) {
                 Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);
                 break;
