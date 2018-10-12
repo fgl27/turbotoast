@@ -91,14 +91,14 @@ public class TurboToastReceiver extends BroadcastReceiver {
     public boolean canChechck(Context context) {
         KeyguardManager km = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
         PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        boolean isScreenAwake, isUnLocked;
+        boolean isScreenAwake, isLocked;
 
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) isScreenAwake = pm.isInteractive();
         else isScreenAwake = pm.isScreenOn();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) isUnLocked = km.isKeyguardLocked();
-        else isUnLocked = km.inKeyguardRestrictedInputMode();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) isLocked = km.isKeyguardLocked();
+        else isLocked = km.inKeyguardRestrictedInputMode();
 
-        return !isUnLocked && isScreenAwake;
+        return !isLocked && isScreenAwake;
     }
 }
