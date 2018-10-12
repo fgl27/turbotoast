@@ -23,6 +23,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
+import android.app.KeyguardManager;
+import android.os.PowerManager;
+import android.os.Build;
 
 import java.util.Locale;
 
@@ -52,7 +55,7 @@ public class TurboToastReceiver extends BroadcastReceiver {
 
         if (Intent.ACTION_POWER_CONNECTED.equals(action) && TurboToast)
             DoTurboToast(RootEnable, context);
-        else if (Intent.ACTION_POWER_DISCONNECTED.equals(action) && Charge && (time > 150000) &&
+        else if (Intent.ACTION_POWER_DISCONNECTED.equals(action) && canChechck(context) && Charge && (time > 150000) &&
             (Tools.getChargeCapacity(RootEnable) != null)) {
             Tools.DoAToast((context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity(RootEnable) + "%"), context);
             RootUtils.closeSU();
@@ -64,19 +67,38 @@ public class TurboToastReceiver extends BroadcastReceiver {
     public void DoTurboToast(boolean root, Context context) {
         // in average the toast display in 2s add a litle more time just to make shore
         for (int i = 0; i < 10; i++) {
-            String chargetype = Tools.getChargingType(root);
-            RootUtils.closeSU();
-            if (chargetype != null && chargetype.toLowerCase(Locale.US).equals("turbo")) {
-                Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);
-                break;
-            } else {
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt();
-                }
-            }
+            if (canChechck(context)) {
+                String chargetype = Tools.getChargingType(root);
+                RootUtils.closeSU();
+                if (chargetype != null && chargetype.toLowerCase(Locale.US).equals("turbo")) {
+                    Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);
+                    break;
+                } else DoSleep();
+            } else DoSleep();
         }
         RootUtils.closeSU();
+    }
+
+    public void DoSleep() {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    @SuppressWarnings("deprecation")
+    public boolean canChechck(Context context) {
+        KeyguardManager km = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        boolean isScreenAwake, isUnLocked;
+
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) isScreenAwake = pm.isInteractive();
+        else isScreenAwake = pm.isScreenOn();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) isUnLocked = km.isKeyguardLocked();
+        else isUnLocked = km.inKeyguardRestrictedInputMode();
+
+        return !isUnLocked && isScreenAwake;
     }
 }
