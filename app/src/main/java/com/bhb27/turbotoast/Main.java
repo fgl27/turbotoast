@@ -21,6 +21,8 @@ package com.bhb27.turbotoast;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -57,8 +59,7 @@ public class Main extends Activity {
             getPreferenceManager().setSharedPreferencesName(Constants.PREF_NAME);
             addPreferencesFromResource(R.xml.preferences);
             Tools.saveBoolean("Run", true, getActivity());
-            if (!TurboToastService.running) 
-                getActivity().startService(new Intent(getActivity(), ServiceWrapper.class));
+            //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ScheduleobService(getActivity());
 
             // check on init if Root is enable if yes try to start Root
             // use app_is_open bool to prevent the app from toast every time the display rotate 
@@ -108,6 +109,21 @@ public class Main extends Activity {
         public void onPause() {
             super.onPause();
             RootUtils.closeSU();
+        }
+    }
+
+    @TargetApi(21)
+    private static void ScheduleobService(Context context) {
+        JobInfo jobInfo = new JobInfo.Builder(12, new ComponentName(context, TurboToastJobService.class))
+                .setRequiresCharging(true)
+                .build();
+
+        JobScheduler jobScheduler = (JobScheduler) context.getSystemService(JOB_SCHEDULER_SERVICE);
+        int resultCode = jobScheduler.schedule(jobInfo);
+        if (resultCode == JobScheduler.RESULT_SUCCESS) {
+            Log.d(TAG, "Job scheduled!");
+        } else {
+            Log.d(TAG, "Job not scheduled");
         }
     }
 

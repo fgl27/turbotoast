@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bhb27.turbotoast">
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,19 +22,6 @@
             </intent-filter>
         </activity>
 
-        <service android:name="ServiceWrapper" android:permission="ServiceWrapper">
-            <intent-filter>
-                <action android:name="ServiceWrapper"/>
-            </intent-filter>
-        </service>
-
-        <receiver android:name=".BootCompletedReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
-
         <activity
             android:name=".Main"
             android:theme="@style/AppTheme" />
@@ -48,6 +33,18 @@
         <activity
             android:name=".FaqActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver
+            android:name=".TurboToastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".TurboToastJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
 
     </application>
 </manifest>
