@@ -36,7 +36,6 @@ import java.io.FileReader;
 import com.bhb27.turbotoast.root.RootFile;
 import com.bhb27.turbotoast.root.RootUtils;
 import com.bhb27.turbotoast.Constants;
-import com.bhb27.turbotoast.TurboToastReceiver;
 
 public class Tools implements Constants {
 
