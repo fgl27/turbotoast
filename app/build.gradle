@@ -16,7 +16,10 @@ android {
         release {
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles = [
+                getDefaultProguardFile('proguard-android.txt'),
+                'proguard-rules.pro'
+            ]
         }
     }
     compileOptions {
@@ -28,9 +31,9 @@ android {
     }
     lintOptions {
         abortOnError false
-	disable 'UnsafeNativeCodeLocation', //UnsafeNativeCodeLocation: Native code outside library directory libsupol and supolicy
-		'GoogleAppIndexingWarning', //GoogleAppIndexingWarning: Missing support for Firebase App Indexing
-		'IconMissingDensityFolder' //IconMissingDensityFolder: Missing density folder
+        disable 'UnsafeNativeCodeLocation', //UnsafeNativeCodeLocation: Native code outside library directory libsupol and supolicy
+                'GoogleAppIndexingWarning', //GoogleAppIndexingWarning: Missing support for Firebase App Indexing
+                'IconMissingDensityFolder' //IconMissingDensityFolder: Missing density folder
     }
     productFlavors {
     }

@@ -80,30 +80,6 @@ public class AboutActivity extends Activity {
         final String xda_link = Constants.xda_link;
         final String git_link = Constants.git_link;
 
-        email.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(email_link))
-                        .putExtra(Intent.EXTRA_SUBJECT, SUBJECT).putExtra(Intent.EXTRA_TEXT, BODY));
-                } catch (ActivityNotFoundException ex) {
-                    Tools.DoAToast(getString(R.string.no_email_client), AboutContext);
-                }
-            }
-        });
-
-        email_summary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(email_link))
-                        .putExtra(Intent.EXTRA_SUBJECT, SUBJECT).putExtra(Intent.EXTRA_TEXT, BODY));
-                } catch (ActivityNotFoundException ex) {
-                    Tools.DoAToast(getString(R.string.no_email_client), AboutContext);
-                }
-            }
-        });
-
         xda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,18 +117,6 @@ public class AboutActivity extends Activity {
         ic_gmail = (ImageView) findViewById(R.id.ic_gmail);
         ic_xda = (ImageView) findViewById(R.id.ic_xda);
         ic_git = (ImageView) findViewById(R.id.ic_git);
-
-        ic_gmail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(email_link))
-                        .putExtra(Intent.EXTRA_SUBJECT, SUBJECT).putExtra(Intent.EXTRA_TEXT, BODY));
-                } catch (ActivityNotFoundException ex) {
-                    Tools.DoAToast(getString(R.string.no_email_client), AboutContext);
-                }
-            }
-        });
 
         ic_xda.setOnClickListener(new View.OnClickListener() {
             @Override
