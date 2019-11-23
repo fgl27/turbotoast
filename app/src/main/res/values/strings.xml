@@ -34,7 +34,7 @@
     <!-- about -->
     <string name="about">About TurboToast</string>
     <string name="dev_info">Developer information:</string>
-    <string name="git_summary">This is an open source app. Check it out on my github\ngithub.com/bhb27/turbotoast</string>
+    <string name="git_summary">This is an open source app. Check it out on my github\ngithub.com/fgl27/turbotoast</string>
     <string name="version">Version</string>
     <!--     <string name="version_summary">This version can run without Root access, but can only work like this on BHB27 Kernel or CM Kernel Mod by BHB27</string> -->
     <string name="xda_summary">XDA support forum</string>

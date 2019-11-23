@@ -32,7 +32,7 @@
     <!-- about -->
     <string name="about">Sobre TurboToast</string>
     <string name="dev_info">Informações do Desenvolvedor:</string>
-    <string name="git_summary">Este app é aberto (open source) confira no meu github\ngithub.com/bhb27/turbotoast</string>
+    <string name="git_summary">Este app é aberto (open source) confira no meu github\ngithub.com/fgl27/turbotoast</string>
     <string name="no_email_client">Não há nenhum cliente de email instalado no dispositivo.</string>
     <string name="no_browser">Não há nenhum navegador de web instalado no dispositivo.</string>
     <string name="version">Versão</string>

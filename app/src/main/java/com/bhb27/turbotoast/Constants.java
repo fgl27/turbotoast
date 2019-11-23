@@ -34,5 +34,5 @@ public interface Constants {
     //links
     String email_link = "mailto:fglfgl27@gmail.com";
     String xda_link = "http://forum.xda-developers.com/moto-maxx/themes-apps/app-turbo-toast-t3427981";
-    String git_link = "https://github.com/bhb27/turbotoast";
+    String git_link = "https://github.com/fgl27/turbotoast";
 }
