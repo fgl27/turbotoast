@@ -51,19 +51,18 @@ public class TurboToastReceiver extends BroadcastReceiver {
 
         if ((!TurboToast && !Charge) || !Run) return;
 
-        if (Intent.ACTION_POWER_CONNECTED.equals(action) && TurboToast) {
+        if (RootEnable && !RootUtils.rootAccess()) {
+            Tools.DoAToast((context.getResources().getString(R.string.no_root_access)), context);
+            RootUtils.closeSU();
+            return;
+        }
 
-            if (RootEnable && !RootUtils.rootAccess()) {
-                Tools.DoAToast((context.getResources().getString(R.string.no_root_access)), context);
-                RootUtils.closeSU();
-                return;
-            }
+        if (Intent.ACTION_POWER_CONNECTED.equals(action) && TurboToast) {
 
             if (TurboToastThread == null || TurboToastHandler == null) {
                 TurboToastThread = new HandlerThread("TurboToastThread");
                 TurboToastThread.start();
-                Looper NotificationLooper = TurboToastThread.getLooper();
-                TurboToastHandler = new Handler(NotificationLooper);
+                TurboToastHandler = new Handler(TurboToastThread.getLooper());
             }
 
             TurboToastCounter = 0;
