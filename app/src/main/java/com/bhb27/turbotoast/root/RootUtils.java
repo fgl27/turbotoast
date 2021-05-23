@@ -72,9 +72,9 @@ public class RootUtils {
 
     public static void mount(boolean writeable, String mountpoint) {
         runCommand(writeable ? "mount -o remount,rw " + mountpoint + " " + mountpoint :
-            "mount -o remount,ro " + mountpoint + " " + mountpoint);
+                "mount -o remount,ro " + mountpoint + " " + mountpoint);
         runCommand(writeable ? "mount -o remount,rw " + mountpoint :
-            "mount -o remount,ro " + mountpoint);
+                "mount -o remount,ro " + mountpoint);
     }
 
     public static void closeSU() {

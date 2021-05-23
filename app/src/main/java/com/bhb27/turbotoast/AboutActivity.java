@@ -53,11 +53,11 @@ public class AboutActivity extends Activity {
         setContentView(R.layout.about_fragment);
         AboutContext = this;
         final String SUBJECT = getString(R.string.app_name) + " " +
-            BuildConfig.VERSION_NAME + " (" + Build.MODEL + " " + Build.VERSION.RELEASE + ")";
+                BuildConfig.VERSION_NAME + " (" + Build.MODEL + " " + Build.VERSION.RELEASE + ")";
 
         final String BODY = "\n\n\nPower folders listing:\n" +
-            (Tools.getBoolean("Root", true, AboutContext) ?
-                RootUtils.runCommand("ls " + Constants.BATTERY_PARAMETERS) : listfiles(Constants.BATTERY_PARAMETERS));
+                (Tools.getBoolean("Root", true, AboutContext) ?
+                        RootUtils.runCommand("ls " + Constants.BATTERY_PARAMETERS) : listfiles(Constants.BATTERY_PARAMETERS));
 
         LinearLayout layout = (LinearLayout) findViewById(R.id.aboutLayout);
         AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);

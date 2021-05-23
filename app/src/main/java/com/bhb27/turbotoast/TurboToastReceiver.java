@@ -56,7 +56,7 @@ public class TurboToastReceiver extends BroadcastReceiver {
         if (Intent.ACTION_POWER_CONNECTED.equals(action) && TurboToast)
             DoTurboToast(RootEnable, context);
         else if (Intent.ACTION_POWER_DISCONNECTED.equals(action) && canChechck(context) && Charge && (time > 150000) &&
-            (Tools.getChargeCapacity(RootEnable) != null)) {
+                (Tools.getChargeCapacity(RootEnable) != null)) {
             Tools.DoAToast((context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity(RootEnable) + "%"), context);
             RootUtils.closeSU();
         }
