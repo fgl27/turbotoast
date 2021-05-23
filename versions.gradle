@@ -2,11 +2,11 @@ ext.versions = [
         minSdk               : 13,
         maxSdk               : 25,
         compileSdk           : 29,
-        buildTools           : '29.0.1',
+        buildTools           : '30.0.3',
 
-        publishVersion       : '1.1.9',
-        publishVersionCode   : 42,
+        publishVersion       : '1.2.0',
+        publishVersionCode   : 43,
 
-        gradlePlugin         : '3.5.2',
-        benmanes             : '0.27.0',
+        gradlePlugin         : '4.2.1',
+        benmanes             : '0.36.0',
 ]
