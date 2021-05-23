@@ -19,21 +19,26 @@
  */
 package com.bhb27.turbotoast;
 
+import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.SystemClock;
-import android.app.KeyguardManager;
-import android.os.PowerManager;
 import android.os.Build;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.PowerManager;
+import android.os.SystemClock;
+
+import com.bhb27.turbotoast.root.RootUtils;
 
 import java.util.Locale;
 
-import com.bhb27.turbotoast.R;
-import com.bhb27.turbotoast.Tools;
-import com.bhb27.turbotoast.root.RootUtils;
-
 public class TurboToastReceiver extends BroadcastReceiver {
+
+    private HandlerThread TurboToastThread;
+    private Handler TurboToastHandler;
+    private int TurboToastCounter;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -45,50 +50,74 @@ public class TurboToastReceiver extends BroadcastReceiver {
         boolean Run = Tools.getBoolean("Run", false, context);
 
         if ((!TurboToast && !Charge) || !Run) return;
-        else if (RootEnable && !RootUtils.rootAccess()) {
-            Tools.DoAToast((context.getResources().getString(R.string.no_root_access)), context);
-            RootUtils.closeSU();
-            return;
-        } else RootUtils.closeSU();
-        // Android is sending undesirable DISCONNECTED at boot with make a toast even if there is no action on the POWER
-        Long time = SystemClock.elapsedRealtime();
 
-        if (Intent.ACTION_POWER_CONNECTED.equals(action) && TurboToast)
+        if (Intent.ACTION_POWER_CONNECTED.equals(action) && TurboToast) {
+
+            if (RootEnable && !RootUtils.rootAccess()) {
+                Tools.DoAToast((context.getResources().getString(R.string.no_root_access)), context);
+                RootUtils.closeSU();
+                return;
+            }
+
+            if (TurboToastThread == null || TurboToastHandler == null) {
+                TurboToastThread = new HandlerThread("TurboToastThread");
+                TurboToastThread.start();
+                Looper NotificationLooper = TurboToastThread.getLooper();
+                TurboToastHandler = new Handler(NotificationLooper);
+            }
+
+            TurboToastCounter = 0;
             DoTurboToast(RootEnable, context);
-        else if (Intent.ACTION_POWER_DISCONNECTED.equals(action) && canChechck(context) && Charge && (time > 150000) &&
+
+        } else if (Intent.ACTION_POWER_DISCONNECTED.equals(action) && canCheck(context) && Charge &&
+                (SystemClock.elapsedRealtime() > 150000) && // Android is sending undesirable DISCONNECTED at boot with make a toast even if there is no action on the POWER
                 (Tools.getChargeCapacity(RootEnable) != null)) {
+
             Tools.DoAToast((context.getResources().getString(R.string.charge) + " " + Tools.getChargeCapacity(RootEnable) + "%"), context);
             RootUtils.closeSU();
         }
 
-        RootUtils.closeSU();
     }
 
     public void DoTurboToast(boolean root, Context context) {
-        // in average the toast display in 2s add a litle more time just to make shore
-        for (int i = 0; i < 10; i++) {
-            if (canChechck(context)) {
+
+        if (TurboToastCounter < 20) {
+
+            TurboToastHandler.postDelayed(() -> {
+
+                if(!canCheck(context)) {
+
+                    DoTurboToast(root, context);
+                    return;
+
+                }
+
                 String chargetype = Tools.getChargingType(root);
-                RootUtils.closeSU();
+
                 if (chargetype != null && chargetype.toLowerCase(Locale.US).equals("turbo")) {
+
                     Tools.DoAToast((context.getResources().getString(R.string.chargerconnected_turbo_toast)), context);
-                    break;
-                } else DoSleep();
-            } else DoSleep();
+                    RootUtils.closeSU();
+
+                } else {
+
+                    DoTurboToast(root, context);
+
+                }
+
+            }, 250);
+
+        } else {
+
+            RootUtils.closeSU();
+
         }
-        RootUtils.closeSU();
+
+        TurboToastCounter++;
     }
 
-    public void DoSleep() {
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
-    }
 
-    @SuppressWarnings("deprecation")
-    public boolean canChechck(Context context) {
+    public boolean canCheck(Context context) {
         KeyguardManager km = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
         PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         boolean isScreenAwake, isLocked;
