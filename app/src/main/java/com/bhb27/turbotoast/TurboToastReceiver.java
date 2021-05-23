@@ -81,7 +81,7 @@ public class TurboToastReceiver extends BroadcastReceiver {
 
     public void DoTurboToast(boolean root, Context context) {
 
-        if (TurboToastCounter < 20) {
+        if (TurboToastCounter < 50) {
 
             TurboToastHandler.postDelayed(() -> {
 
@@ -105,7 +105,7 @@ public class TurboToastReceiver extends BroadcastReceiver {
 
                 }
 
-            }, 250);
+            }, 100);
 
         } else {
 
