@@ -89,7 +89,6 @@ if [ ! -e ./app/build/outputs/apk/release/app-release-unsigned.apk ]; then
 else
 	jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -storepass "$KEY_PASS" -keystore "$KEY_FOLDER" "$OUT_FOLDER"/app-release-unsigned.apk Felipe_Leon
 	"$ZIPALIGN_FOLDER" -v 4 "$OUT_FOLDER"/app-release-unsigned.apk "$OUT_FOLDER"/"$APP_FINAL_NAME"
-	cp "$OUT_FOLDER"/"$APP_FINAL_NAME" "$OUT_FOLDER"/isu"$(date +%s)".apk
 
 	echo "$(./gradlew -q gradleUpdates | sed '/jacoco/d')" >> build_log.txt
 

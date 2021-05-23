@@ -19,11 +19,9 @@
  */
 package com.bhb27.turbotoast;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
-
-import com.bhb27.turbotoast.Main;
 
 public class Start extends Activity {
 

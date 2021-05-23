@@ -22,17 +22,12 @@ package com.bhb27.turbotoast;
 import android.annotation.TargetApi;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.os.SystemClock;
 import android.util.Log;
 
-import java.util.Locale;
-
-import com.bhb27.turbotoast.R;
-import com.bhb27.turbotoast.Tools;
 import com.bhb27.turbotoast.root.RootUtils;
+
+import java.util.Locale;
 
 @TargetApi(21)
 public class TurboToastJobService extends JobService {

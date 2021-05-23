@@ -20,20 +20,15 @@
 package com.bhb27.turbotoast;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ActivityNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.bhb27.turbotoast.Tools;
-import com.bhb27.turbotoast.Constants;
 
 public class FaqActivity extends Activity {
     // in order of appearance
@@ -57,26 +52,20 @@ public class FaqActivity extends Activity {
         final String xda_link = Constants.xda_link;
 
         xda = (TextView) findViewById(R.id.xda);
-        xda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(xda_link)));
-                } catch (ActivityNotFoundException ex) {
-                    Tools.DoAToast(getString(R.string.no_browser), FaqContext);
-                }
+        xda.setOnClickListener(v -> {
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(xda_link)));
+            } catch (ActivityNotFoundException ex) {
+                Tools.DoAToast(getString(R.string.no_browser), FaqContext);
             }
         });
 
         ic_xda = (ImageView) findViewById(R.id.ic_xda);
-        ic_xda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(xda_link)));
-                } catch (ActivityNotFoundException ex) {
-                    Tools.DoAToast(getString(R.string.no_browser), FaqContext);
-                }
+        ic_xda.setOnClickListener(v -> {
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(xda_link)));
+            } catch (ActivityNotFoundException ex) {
+                Tools.DoAToast(getString(R.string.no_browser), FaqContext);
             }
         });
     }

@@ -21,21 +21,17 @@ package com.bhb27.turbotoast.root;
 
 import android.util.Log;
 
-import com.bhb27.turbotoast.Tools;
 import com.bhb27.turbotoast.Constants;
+import com.bhb27.turbotoast.Tools;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 /**
  * Created by willi on 14.12.14.
- */
-
-/**
  * Here you have different functions which will help you with root commands.
  * I think they are self explained and do no need any further descriptions.
  */
@@ -43,38 +39,10 @@ public class RootUtils {
 
     private static SU su;
 
-    public static boolean rooted() {
-        return existBinary("su");
-    }
-
     public static boolean rootAccess() {
         SU su = getSU();
         su.runCommand("echo /testRoot/");
         return !su.denied;
-    }
-
-    public static boolean busyboxInstalled() {
-        return existBinary("busybox") || existBinary("toybox");
-    }
-
-    private static boolean existBinary(String binary) {
-        for (String path: System.getenv("PATH").split(":")) {
-            if (!path.endsWith("/")) path += "/";
-            if (new File(path + binary).exists() || Tools.existFile(path + binary, true))
-                return true;
-        }
-        return false;
-    }
-
-    public static String getKernelVersion() {
-        return runCommand("uname -r");
-    }
-
-    public static void mount(boolean writeable, String mountpoint) {
-        runCommand(writeable ? "mount -o remount,rw " + mountpoint + " " + mountpoint :
-                "mount -o remount,ro " + mountpoint + " " + mountpoint);
-        runCommand(writeable ? "mount -o remount,rw " + mountpoint :
-                "mount -o remount,ro " + mountpoint);
     }
 
     public static void closeSU() {

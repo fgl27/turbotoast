@@ -19,31 +19,20 @@
  */
 package com.bhb27.turbotoast;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.job.JobInfo;
-import android.app.job.JobScheduler;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.content.SharedPreferences;
 import android.preference.Preference;
-import android.preference.PreferenceFragment;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.util.Log;
+import android.preference.PreferenceFragment;
 
-import com.bhb27.turbotoast.AboutActivity;
-import com.bhb27.turbotoast.Constants;
-import com.bhb27.turbotoast.FaqActivity;
 import com.bhb27.turbotoast.root.RootUtils;
-import com.bhb27.turbotoast.Tools;
 
 public class Main extends Activity {
 
     private static boolean app_is_open = true;
-    private static final String TAG = Main.class.getSimpleName();
+    //private static final String TAG = Main.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,20 +64,17 @@ public class Main extends Activity {
                 }
                 app_is_open = false;
             }
-            getPreferenceManager().findPreference("teste").setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    boolean root = Tools.getBoolean("Root", true, getActivity());
-                    if (root && !RootUtils.rootAccess()) {
-                        Tools.DoAToast(getString(R.string.no_root_access), getActivity());
-                        return true;
-                    }
-                    Tools.DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingType(root), getActivity());
+            getPreferenceManager().findPreference("teste").setOnPreferenceClickListener(preference -> {
+                boolean root = Tools.getBoolean("Root", true, getActivity());
+                if (root && !RootUtils.rootAccess()) {
+                    Tools.DoAToast(getString(R.string.no_root_access), getActivity());
                     return true;
                 }
+                Tools.DoAToast(getString(R.string.device_model) + " " + Build.MODEL + "\n" + getString(R.string.test_a_toast) + Tools.getChargingType(root), getActivity());
+                return true;
             });
             getPreferenceManager().findPreference("about").setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                Intent myIntent = new Intent(getActivity(), AboutActivity.class);
+                final Intent myIntent = new Intent(getActivity(), AboutActivity.class);
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     startActivity(myIntent);
@@ -96,7 +82,7 @@ public class Main extends Activity {
                 }
             });
             getPreferenceManager().findPreference("faq").setOnPreferenceClickListener(new OnPreferenceClickListener() {
-                Intent myIntent = new Intent(getActivity(), FaqActivity.class);
+                final Intent myIntent = new Intent(getActivity(), FaqActivity.class);
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     startActivity(myIntent);
@@ -112,19 +98,19 @@ public class Main extends Activity {
         }
     }
 
-    @TargetApi(21)
-    private static void ScheduleobService(Context context) {
-        JobInfo jobInfo = new JobInfo.Builder(12, new ComponentName(context, TurboToastJobService.class))
-                .setRequiresCharging(true)
-                .build();
-
-        JobScheduler jobScheduler = (JobScheduler) context.getSystemService(JOB_SCHEDULER_SERVICE);
-        int resultCode = jobScheduler.schedule(jobInfo);
-        if (resultCode == JobScheduler.RESULT_SUCCESS) {
-            Log.d(TAG, "Job scheduled!");
-        } else {
-            Log.d(TAG, "Job not scheduled");
-        }
-    }
+//    @TargetApi(21)
+//    private static void ScheduleobService(Context context) {
+//        JobInfo jobInfo = new JobInfo.Builder(12, new ComponentName(context, TurboToastJobService.class))
+//                .setRequiresCharging(true)
+//                .build();
+//
+//        JobScheduler jobScheduler = (JobScheduler) context.getSystemService(JOB_SCHEDULER_SERVICE);
+//        int resultCode = jobScheduler.schedule(jobInfo);
+//        if (resultCode == JobScheduler.RESULT_SUCCESS) {
+//            Log.d(TAG, "Job scheduled!");
+//        } else {
+//            Log.d(TAG, "Job not scheduled");
+//        }
+//    }
 
 }

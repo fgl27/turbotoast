@@ -20,12 +20,9 @@
 package com.bhb27.turbotoast.tileservice;
 
 import android.annotation.TargetApi;
-import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 
-import com.bhb27.turbotoast.R;
 import com.bhb27.turbotoast.Tools;
-import com.bhb27.turbotoast.root.RootUtils;
 
 @TargetApi(24)
 public class QuickTileTurbo extends TileService {

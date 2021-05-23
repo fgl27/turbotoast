@@ -21,22 +21,18 @@
 package com.bhb27.turbotoast;
 
 import android.content.Context;
-
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bhb27.turbotoast.root.RootFile;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.FileReader;
-
-import com.bhb27.turbotoast.root.RootFile;
-import com.bhb27.turbotoast.root.RootUtils;
-import com.bhb27.turbotoast.Constants;
-import com.bhb27.turbotoast.TurboToastReceiver;
+import java.io.IOException;
 
 public class Tools implements Constants {
 
