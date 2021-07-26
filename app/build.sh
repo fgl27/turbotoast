@@ -92,7 +92,7 @@ else
 
 	echo "$(./gradlew -q gradleUpdates | sed '/jacoco/d')" >> build_log.txt
 
-        ISSUES=$(grep issues build_log.txt | grep release)
+    ISSUES=$(grep issues build_log.txt | grep release)
 	if [ -n "$ISSUES" ]; then
 		NOISSUES=0;
 		contains "$ISSUES" ": 1 issues" && NOISSUES=1;
