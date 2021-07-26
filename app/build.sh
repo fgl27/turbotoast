@@ -12,7 +12,7 @@ START2="$(date)";
 echo -e "\n Script start $(date)\n";
 
 #Folders Folder= you app folder SDK_Folder android sdk folder Download it if you don't have it, don't remove the sdk.dir= from the line
-FOLDER="$HOME"/android/TurboToast;
+FOLDER="$HOME"/android/turbotoast;
 SDK_FOLDER="$HOME"/android/sdk;
 SDK_DIR="sdk.dir=$SDK_FOLDER";
 
@@ -44,7 +44,7 @@ KEY_PASS=$(<"$HOME"/android/temp/sign/pass);
 # out app folder and out app name
 VERSION=$(grep publishVersion "$FOLDER"/versions.gradle | head -n1 | cut -d\' -f2 | sed 's/\./_/' | sed 's/\./_/');
 OUT_FOLDER="$FOLDER"/app/build/outputs/apk/release;
-APP_FINAL_NAME=TurboToast$VERSION.apk;
+APP_FINAL_NAME=turbotoast$VERSION.apk;
 #making start here...
 contains() {
     string="$1"
